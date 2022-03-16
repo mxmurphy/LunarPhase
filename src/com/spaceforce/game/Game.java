@@ -7,21 +7,29 @@ import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
 
-import java.io.File;
-
 
 public class Game {
     private Game(){}
 
     public static void displayIntro(){
-         View.renderImage(new File("Resources/Images/birdLogo.txt"));
+        View.renderText("\n\nThis is a text based adventure where you lost the company spaceship.");
+                View.renderText("In order to not lose your job you need to find it before anyone notices it gone!");
+                View.renderText("Will you take on the challenge of not getting fired!");
+                View.renderText("Welcome to the game.");
+//         View.renderImage(new File("Resources/Images/birdLogo.txt"));
+         View.renderText("\n\nEnter start to begin.");
     }
     public static void newGame(){
         if(Save.hasSave()){
             Save.loadData();
         } else {
-            GameMap.init();
+            displayIntro();
             UserInterface.beginInput();
+        }
+        System.out.println(GameMap.currentLocation.introMsg);
+        while(true){
+            UserInterface.beginInput();
+
         }
 //         Map.init();
 //         Map.goTo(Map.area1);

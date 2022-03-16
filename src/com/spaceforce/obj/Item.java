@@ -2,8 +2,6 @@ package com.spaceforce.obj;
 
 import com.spaceforce.util.ui.View;
 
-import java.io.File;
-
 public class Item implements Interaction {
 
     public String lookMsg = "Why you trying to look at that";
@@ -50,4 +48,10 @@ public class Item implements Interaction {
         return this.grabbable;
    }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

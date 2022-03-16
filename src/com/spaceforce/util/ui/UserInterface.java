@@ -25,10 +25,12 @@ public class UserInterface {
     }
 
     public static void beginInput() {
-        while (true) {
-            String userRequest = userInput.next().toUpperCase(); // in what case can userRequest be null? what happens if it's an empty string?
+            String userRequest = userInput.nextLine().toUpperCase(); // in what case can userRequest be null? what happens if it's an empty string?
 
             switch (userRequest) {
+                case "START":
+                    GameMap.init();
+                    break;
                 case "HELP":
                     Game.help();
                     break;
@@ -38,6 +40,8 @@ public class UserInterface {
                 case "INVENTORY":
                     View.renderText(Player.getInventory().toString());
                     break;
+                case "LOOK":
+                    GameMap.currentLocation.look();
                 case "EXIT": {
                     Game.exit();
                     return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
@@ -53,7 +57,7 @@ public class UserInterface {
                         requestAction = CommandParser.getAction(userRequest);
                     }
                     if (requestAction != null && requestTarget != null) {
-                        if (requestAction.equals("PICKUP") && requestTarget.isGrabbable()) {
+                        if (requestAction.equals("PICKUP") && requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
 //                        GameMap.currentLocation.items
                             Game.grabItem((Item) requestTarget);
                         }
@@ -75,7 +79,6 @@ public class UserInterface {
                         Game.help();
                     }
                 }
-            }
         }
 //                    ActionSubject subject;
 //
