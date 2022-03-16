@@ -3,9 +3,9 @@ package com.spaceforce.util.fileParsing;
 
 import com.spaceforce.obj.Item;
 import com.spaceforce.obj.Location;
+import com.spaceforce.obj.NPC;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ArrayNode;
-
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -70,6 +70,16 @@ public class JsonImporter {
         }
         if (item == null) throw new IOException("Location of id:" + id + " does not exist in json data file");
         return item;
+    }
+    public static NPC parseNpc(int id) throws IOException {
+        NPC npc = null;
+        //If json file has location of that id return it. Else throw exception
+        if (itemNodes.has(id)) {
+            npc = objectMapper.readValue(npcNodes.get(id), NPC.class);
+            return npc;
+        }
+        if (npc == null) throw new IOException("Location of id:" + id + " does not exist in json data file");
+        return npc;
     }
 
 }

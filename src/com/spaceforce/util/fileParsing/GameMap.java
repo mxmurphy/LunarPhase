@@ -25,6 +25,7 @@ public class GameMap {
             currentLocation = (Location)locations.values().toArray()[0];
         }
         currentLocation.initItems();
+        currentLocation.initNpcs();
     }
     //Turns Location Array into a map with names as the key
     static Map<String, Location> formatArray(Location[] locationsArray){

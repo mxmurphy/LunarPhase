@@ -3,7 +3,8 @@
     "name": "start",
     "introMsg": "WHERE DID THE SHIP GO?!",
     "itemIds": [0],
-    "talkMsg": "stinky"
+    "talkMsg": "stinky",
+    "npcIds": [[0], [1]]
   },
   {
     "name": "shuttle",
@@ -22,5 +23,6 @@
     "introMsg": "I went off to see the most beautiful sight I'd ever seen. Then I went off to Earth.",
     "itemIds": [0],
     "talkMsg": "sounds like another plague."
+
   }
 ]
