@@ -79,10 +79,6 @@ public class Location implements Interaction {
         View.renderText(talkMsg);
     }
 
-    @Override
-    public String getName() {
-        return this.name;
-    }
 
     @Override
     public void look() {
