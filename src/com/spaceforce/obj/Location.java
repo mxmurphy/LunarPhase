@@ -85,4 +85,8 @@ public class Location implements Interaction{
     public void drop() {
         View.renderText(dropMsg);
     }
+
+    public String getName(){
+        return name;
+    }
 }

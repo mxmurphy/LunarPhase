@@ -64,7 +64,8 @@ public class UserInterface {
                         if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
                             Player.removeItem((Item) requestTarget);
                         }
-                        if (requestAction.equals("GO") && GameMap.currentLocation.checkExit(((Location) requestTarget).name)) {
+                        if (requestAction.equals("GO")) { // && GameMap.currentLocation.checkExit(((Location) requestTarget).name)
+
                             GameMap.currentLocation = (Location) requestTarget;
                         }
                         if (requestAction.equals("USE")) {
