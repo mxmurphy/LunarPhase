@@ -43,6 +43,7 @@ public class UserInterface {
                     break;
                 case "LOOK":
                     GameMap.currentLocation.look();
+                    break;
                 case "EXIT": {
                     Game.exit();
                     return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
@@ -78,9 +79,6 @@ public class UserInterface {
                                 }
                             }
                         }
-
-
-
                         else if(requestAction.equals("TALK")) {
                             for(var npc:GameMap.currentLocation.npcs){
                                 if(requestTarget.getName().equalsIgnoreCase(npc.getName())){
