@@ -1,6 +1,7 @@
 [
   {
     "name": "Garbage",
-    "pickMsg": "it stinky"
+    "pickMsg": "it stinky",
+    "useMsg": "you used it"
   }
 ]

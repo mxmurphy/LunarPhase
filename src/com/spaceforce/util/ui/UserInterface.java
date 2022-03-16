@@ -71,9 +71,17 @@ public class UserInterface {
                             GameMap.currentLocation = (Location) requestTarget;
                             View.renderText(GameMap.currentLocation.introMsg);
 
-                        }else if (requestAction.equals("USE")) {
+                        }else if (requestAction.equals("USE")){
+                            for(Item item : Player.getInventory()) {
+                                if(requestTarget.getName().equalsIgnoreCase(item.getName())){
+                                    item.use();
+                                }
+                            }
+                        }
 
-                        } else if(requestAction.equals("TALK")) {
+
+
+                        else if(requestAction.equals("TALK")) {
                             for(var npc:GameMap.currentLocation.npcs){
                                 if(requestTarget.getName().equalsIgnoreCase(npc.getName())){
                                     View.renderText(npc.talkMsg);
