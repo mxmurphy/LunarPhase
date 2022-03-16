@@ -64,9 +64,19 @@ public class UserInterface {
                             Player.removeItem((Item) requestTarget);
                         }else if (requestAction.equals("GO") && GameMap.currentLocation.checkExit(((Location) requestTarget).name)) {
                             GameMap.currentLocation = (Location) requestTarget;
-                        }else if (requestAction.equals("USE")) {
 
-                        } else if(requestAction.equals("TALK")) {
+
+                        }else if (requestAction.equals("USE")){
+                            for(Item item : Player.getInventory()) {
+                                if(requestTarget.getName().equalsIgnoreCase(item.getName())){
+                                    item.use();
+                                }
+                            }
+                        }
+
+
+
+                        else if(requestAction.equals("TALK")) {
                             for(var npc:GameMap.currentLocation.npcs){
                                 if(requestTarget.getName().equalsIgnoreCase(npc.getName())){
                                     View.renderText(npc.talkMsg);

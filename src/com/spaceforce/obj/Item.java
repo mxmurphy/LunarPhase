@@ -50,7 +50,7 @@ public class Item implements Interaction {
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
