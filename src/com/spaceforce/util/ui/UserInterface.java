@@ -60,18 +60,22 @@ public class UserInterface {
                         if (requestAction.equals("PICKUP") && requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
 //                        GameMap.currentLocation.items
                             Game.grabItem((Item) requestTarget);
-                        }
-                        if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
+                        }else if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
                             Player.removeItem((Item) requestTarget);
-                        }
-                        if (requestAction.equals("GO") && GameMap.currentLocation.checkExit(((Location) requestTarget).name)) {
+                        }else if (requestAction.equals("GO") && GameMap.currentLocation.checkExit(((Location) requestTarget).name)) {
                             GameMap.currentLocation = (Location) requestTarget;
-                        }
-                        if (requestAction.equals("USE")) {
+                        }else if (requestAction.equals("USE")) {
 
-                        } else {
-                            requestTarget.interact(requestAction);
-                        }
+                        } else if(requestAction.equals("TALK")) {
+                            for(var npc:GameMap.currentLocation.npcs){
+                                if(requestTarget.getName().equalsIgnoreCase(npc.getName())){
+                                    View.renderText(npc.talkMsg);
+                                }
+                            }
+                        }else{
+                                requestTarget.interact(requestAction);
+                            }
+
                     } else {
                         System.out.println(requestAction);
                         System.out.println(requestTarget);
