@@ -1,7 +1,5 @@
 package com.spaceforce.obj;
 
-import java.util.Locale;
-
 public interface Interaction {
 
     void talk();
@@ -23,4 +21,6 @@ public interface Interaction {
     default boolean isGrabbable(){
         return false;
     }
+
+    String getName();
 }
