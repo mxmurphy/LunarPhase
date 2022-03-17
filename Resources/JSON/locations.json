@@ -2,12 +2,8 @@
   {
     "name": "office",
     "introMsg": "My manager is in here somewhere and he is going to be livid!",
-    "itemIds": [
-      0
-    ],
-    "npcIds": [
-      0
-    ],
+    "itemIds": [0],
+    "npcIds": [0],
     "lookMsg": "You COWORKER is in the cubicle next to you and there is a TOWEL on your desks. From the office you can reach the GARAGE.",
     "description": "Your place of work--conspicuously missing the spaceship typically parked outside.",
     "talkMsg": "Mondays, huh?"
@@ -15,13 +11,9 @@
   {
     "name": "garage",
     "introMsg": "Hopefully the spaceship is being repaired in the garage, but you would have seen the work order",
-    "itemIds": [
-      1
-    ],
-    "npcIds": [
-      1
-    ],
-    "lookMsg": "There's a mechanic in the corner and a MUFFLER on the ground. Off in the distance you see the commuter SHUTTLE.",
+    "itemIds": [1],
+    "npcIds": [1],
+    "lookMsg": "There's a MECHANIC in the corner and a MUFFLER on the ground. Off in the distance you see the commuter SHUTTLE.",
     "description": "A normal parking garage--though significantly larger than average. Due to the spaceship. Which isn't here.",
     "talkMsg": "You ask where the spaceship is, to no one in particular."
   },
@@ -39,12 +31,12 @@
     "introMsg": "An exact copy of your office on Earth. MEMCorp is obviously a very creative company.",
     "itemIds": [3],
     "npcIds": [3],
-    "lookMsg": "You see the moon base equivalent of your cubicle, there is a depressed looking man sitting at the desk with the nameplate GEORGE and a tipped over trash can with GARBAGE on the floor. The TICKET OFFICE is right outside the door.",
+    "lookMsg": "You see the moon base equivalent of your cubicle, there is a depressed looking man sitting at the desk with the nameplate GEORGE and a tipped over trash can with GARBAGE on the floor. The TICKET BOX is right outside the door.",
     "description": "The office has the exact floor plan as your office at earth",
     "talkMsg": "I'm going to need those TPS reports on my desk tomorrow."
   },{
-  "name": "ticket office",
-  "introMsg": "A ticket office where you can buy tickets to the MEMCorp Mars base.",
+  "name": "ticket box",
+  "introMsg": "A ticket box where you can buy tickets to the MEMCorp Mars base.",
   "itemIds": [4],
   "npcIds": [4],
   "lookMsg": "There is a SALESMAN behind the counter and 'Please take a NUMBER' dispenser off to the side. There is a space ship on the LAUNCH PAD outside.",
@@ -70,7 +62,7 @@
     "talkMsg": "Has anyone seen my stapler?"
   },
   {
-    "name": "mars garage",
+    "name": "mars parking",
     "introMsg": "There she is. The lost spaceship",
     "itemIds": [7],
     "npcIds": [7],

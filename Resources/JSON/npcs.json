@@ -12,7 +12,7 @@
     "needItem": null
   },
   {
-    "NAME": "PILOT",
+    "name": "PILOT",
     "talkMsg": "I can't let you hitch a ride, you're clearly unprepared for the travel.",
     "lookMsg": "A scruffy looking nerf-herder.",
     "needItem": "TOWEL"
@@ -33,12 +33,12 @@
   {
     "name": "EMPLOYEE",
     "talkMsg": "You're not getting on this flight without a ticket.",
-    "looksMsg": "An eagle-eyed employee checking tickets.",
+    "lookMsg": "An eagle-eyed employee checking tickets.",
     "needItem": "TICKET"
   },
   {
     "name": "ROBOT",
     "talkMsg": "Hello World",
-    "looksMsg": "Well, it's not R2D2."
+    "lookMsg": "Well, it's not R2D2."
   }
 ]

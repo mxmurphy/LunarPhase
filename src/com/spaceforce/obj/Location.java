@@ -1,10 +1,13 @@
 package com.spaceforce.obj;
 
 import com.spaceforce.util.fileParsing.JsonImporter;
+import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
 
 import java.io.IOException;
 import java.util.Map;
+
+import static com.spaceforce.util.fileParsing.GameMap.currentLocation;
 
 public class Location implements Interaction {
     public String lookMsg="look";
@@ -18,7 +21,6 @@ public class Location implements Interaction {
     public String goMsg = "You're already here";
     public String useMsg = "This isn't a bathroom!";
     public String dropMsg = "Try picking this up before you drop it";
-    public String lookMsg="look";
     public Item[] items;
     public NPC[] npcs;
     Map<String, Item> exits; //name of valid locations to move to
@@ -93,7 +95,7 @@ public class Location implements Interaction {
 
     @Override
     public void look() {
-        View.renderText(description);
+        View.renderText(lookMsg);
     }
 
     @Override
@@ -103,7 +105,12 @@ public class Location implements Interaction {
 
     @Override
     public void go() {
-        View.renderText(goMsg);
+
+        currentLocation = (Location) UserInterface.requestTarget;
+        View.renderText(currentLocation.introMsg+"\n"+ currentLocation.description);
+        currentLocation.initNpcs();
+        currentLocation.initItems();
+
     }
 
     @Override
