@@ -1,0 +1,10 @@
+[
+  {
+    "name": "George",
+    "talkMsg": "I'm George!"
+  },
+  {
+    "name": "Fred",
+    "talkMsg": "And I'm Fred!"
+  }
+]
