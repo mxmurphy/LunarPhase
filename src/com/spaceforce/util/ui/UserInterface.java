@@ -3,7 +3,6 @@ package com.spaceforce.util.ui;
 import com.spaceforce.game.Game;
 import com.spaceforce.obj.Interaction;
 import com.spaceforce.obj.Item;
-import com.spaceforce.obj.Location;
 import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.GameMap;
 
@@ -13,7 +12,8 @@ public class UserInterface {
 
     // consider System.console().readLine() to take user input - it doesn't echo the input which may be good for style's sake
     static Scanner userInput = new Scanner(System.in);
-
+    public static Interaction requestTarget=null;
+    public static String requestAction=null;
     private UserInterface() {
     }
 
@@ -48,14 +48,13 @@ public class UserInterface {
                 break;
             case "TALK":
                 GameMap.currentLocation.talk();
+                break;
             case "EXIT": {
                 Game.exit();
                 return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
             }
             default: {
                 userRequest = CommandParser.parse(userRequest);
-                Interaction requestTarget = null;
-                String requestAction = null;
                 if (CommandParser.getTarget(userRequest) != null) {
                     requestTarget = CommandParser.getTarget(userRequest);
                 }
@@ -72,8 +71,7 @@ public class UserInterface {
                         //boolean validLocation = false;
 
                         View.renderText("Going to " + requestTarget.getName());
-                        GameMap.currentLocation = (Location) requestTarget;
-                        View.renderText(GameMap.currentLocation.introMsg);
+                        GameMap.currentLocation.go();
 
                     } else if (requestAction.equals("USE")) {
                         for (Item item : Player.getInventory()) {
@@ -84,7 +82,7 @@ public class UserInterface {
                     } else if (requestAction.equals("TALK")) {
                         for (var npc : GameMap.currentLocation.npcs) {
                             if (requestTarget.getName().equalsIgnoreCase(npc.getName())) {
-                                View.renderText(npc.talkMsg);
+                                npc.talk();
                             }
                         }
                     } else if (requestAction.equalsIgnoreCase("LOOK")) {
