@@ -1,23 +1,51 @@
 [
   {
-    "name": "Towel",
+    "name": "TOWEL",
     "pickMsg": "Massively useful with great practical value.",
     "lookMsg": "It's a large beach towel with a picture of a Ford Prefect.",
     "useMsg": "You are now dry.",
     "specialMsg": "The shuttle driver notices your towel and offers to let you hitch a ride."
   },
   {
-    "name": "Garbage",
+    "name": "MUFFLER",
+    "pickMsg": "The mechanic yells at you to leave it alone.",
+    "lookMsg": "A surprisingly small muffler for a spaceship. Wait? Why does a spaceship have a muffler--sound doesn't travel in space?!?",
+    "useMsg": "That's not yours. You can't use an item you don't own. Are you a thief?",
+    "specialMsg": "I told you to put that down."
+  },
+  {
+    "name": "KEY",
+    "pickMsg": "A key to an unknown door. Just keep trying--eventually it'll work!",
+    "lookMsg": "It's a large key--the lock it goes with must be massive.",
+    "useMsg": "Nothing happens",
+    "specialMsg": "You push the key into the door and turn."
+  },
+  {
+    "name": "GARBAGE",
     "pickMsg": "It smell's. It's gooey. It's garbage.",
     "lookMsg": "It's an old food container.",
     "useMsg": "It's garbage, what do you want it to do?",
     "specialMsg": "It's garbage. Stop trying to use garbage. Just throw it away."
   },
   {
-    "name": "Key",
-    "pickMsg": "A key to an unknown door. Just keep trying--eventually it'll work!",
-    "lookMsg": "It's a large key--the lock it goes with must be massive.",
-    "useMsg": "Nothing happens",
-    "specialMsg": "You push the key into the door and turn."
+    "name": "NUMBER",
+    "pickMsg": "You have taken number 2001.",
+    "lookMsg": "You have number 2001.",
+    "usemsg": "It's a slip of paper with a number. No one but the ticket agent cares.",
+    "specialMsg": "You hand the agent your number, who tells you, 'Congratulations 2001, you have won a free flight to MARS'"
+  },
+  {
+    "name": "TICKET",
+    "pickMsg": "Economy Class ticket from MEMCorp MOON to MEMCorp MARS.",
+    "lookMsg": "You've seen a ticket before. Moon to Mars.",
+    "useMsg": "Congratulations. You have a ticket to MARS. Do you want a cookie?",
+    "specialMsg": "You give the employee your ticket and she tells you to PICKUP an OXYGEN rebreather on your way onto the ship."
+  },
+  {
+    "name": "REMOTE",
+    "pickMsg": "A remote control to open a spaceship door.",
+    "looksMsg": "A remote control to the doors of a MEMCorp space shuttle.",
+    "useMsg": "You can't use a remote if you're not by a space ship.",
+    "specialMsg": "The door to your spaceship slowly opens."
   }
 ]

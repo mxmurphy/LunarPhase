@@ -46,7 +46,8 @@ public class UserInterface {
             case "LOOK":
                 GameMap.currentLocation.look();
                 break;
-
+            case "TALK":
+                GameMap.currentLocation.talk();
             case "EXIT": {
                 Game.exit();
                 return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
