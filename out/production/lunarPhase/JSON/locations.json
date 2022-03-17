@@ -1,23 +1,31 @@
 [
   {
-    "name": "Office",
+    "name": "start",
     "introMsg": "WHERE DID THE SHIP GO?!",
     "itemIds": [0],
     "talkMsg": "stinky",
+    "description": "starting room",
     "npcIds": [0]
   },
   {
-    "name": "Earth",
-    "introMsg": "You're from Earth--you already know what it is.",
-    "itemIds": [1],
-    "talkMsg": "The familiar scent of Axe body spray wafts through the air.",
-    "npcIds": [1]
+    "name": "shuttle",
+    "introMsg": "THE SHIP ISN'T HERE!!",
+    "itemIds": [0],
+    "description": "shuttle bay",
+    "talkMsg": "shuttle dialog"
   },
   {
-    "name": "Mars",
-    "introMsg": "The red planet--the government says there is no life. But we all know better!",
+    "name": "office",
+    "introMsg": "My manager is in here somewhere.",
     "itemIds": [0],
-    "talkMsg": ""
+    "description": "shuttle office",
+    "talkMsg": "office dialog"
+  },
+  {
+    "name": "earth",
+    "introMsg": "I went off to see the most beautiful sight I'd ever seen. Then I went off to Earth.",
+    "itemIds": [0],
+    "description": "a place with some of my favorite lifeforms. Also humans, unfortunately",
+    "talkMsg": "sounds like another plague."
   }
-
 ]

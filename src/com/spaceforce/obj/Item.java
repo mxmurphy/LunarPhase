@@ -26,7 +26,7 @@ public class Item implements Interaction {
 
     public void pickup() {
         if (grabbable == true) {
-            View.renderText(pickMsg + name);
+            View.renderText(pickMsg + name );
         } else {
             View.renderText(nonpickMsg);
         }
@@ -43,15 +43,14 @@ public class Item implements Interaction {
     public void use() {
         View.renderText(useMsg + name);
     }
-
-    @Override
-    public boolean isGrabbable() {
+   @Override
+   public boolean isGrabbable(){
         return this.grabbable;
-    }
+   }
 
     @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     @Override
