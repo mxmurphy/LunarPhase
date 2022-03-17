@@ -10,12 +10,14 @@ public class GameMap {
     final static String startKey = "start";
     public static Location currentLocation;
     static Map<String, Location> locations;
+    private static boolean isInitialized = false;
 
     //fills static values
     public static void init(){
         //if locations hasn't been initialized, initialize it.
         if(locations == null){
             locations = formatArray(JsonImporter.parseAllLocations());
+            isInitialized = true;
         } else {
             System.out.println("Already initialized");
         }
@@ -44,6 +46,10 @@ public class GameMap {
         } else {
             throw new IOException(); //TODO write message
         }
+    }
+
+    public static boolean isInitialized(){
+        return isInitialized;
     }
 
     public static Map<String, Location> getWorldState(){
