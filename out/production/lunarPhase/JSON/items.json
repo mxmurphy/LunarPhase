@@ -1,7 +1,24 @@
 [
   {
     "name": "Garbage",
-    "pickMsg": "it stinky",
-    "useMsg": "you used it"
+    "pickMsg": "It smells. It's gooey. It's garbage.",
+    "lookMsg": "It's an old food container.",
+    "useMsg": "It's garbage, what do you want it to do?",
+    "specialMsg": "It's garbage. Stop trying to use garbage. Just throw it away."
+  },
+  {
+    "name": "Towel",
+    "pickMsg": "Massively useful with great practical value.",
+    "lookMsg": "It's a large beach towel with a picture of a Ford Prefect.",
+    "useMsg": "You are now dry.",
+    "specialMsg": "The shuttle driver notices your towel and offers to let you hitch a ride."
+  },
+  {
+    "name": "Key",
+    "pickMsg": "A key to an unknown door. Just keep trying--eventually it'll work!",
+    "lookMsg": "It's a large key--the lock it goes with must be massive.",
+    "useMsg": "Nothing happens",
+    "specialMsg": "You push the key into the door and turn."
   }
 ]
+
