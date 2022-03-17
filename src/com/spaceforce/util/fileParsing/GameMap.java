@@ -19,8 +19,8 @@ public class GameMap {
         } else {
             System.out.println("Already initialized");
         }
-        if(locations.containsKey("start")){
-            currentLocation = locations.get("start");
+        if(locations.containsKey("office")){
+            currentLocation = locations.get("office");
         } else {
             currentLocation = (Location)locations.values().toArray()[0];
         }

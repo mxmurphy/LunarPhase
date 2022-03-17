@@ -7,12 +7,14 @@ import com.spaceforce.obj.Location;
 import com.spaceforce.obj.NPC;
 import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.GameMap;
+import com.spaceforce.util.fileParsing.JsonImporter;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.spaceforce.util.fileParsing.JsonImporter.objectMapper;
@@ -47,8 +49,13 @@ public class CommandParser {
                 }
             }
         }
-        if(request.contains(GameMap.currentLocation.name.toUpperCase())){}
-        return null;
+        for(Location location : JsonImporter.parseAllLocations()){
+            if(request.contains(location.getName().toUpperCase())){
+                return location;
+            }
+        }
+
+        return null; //null if nothing was found. bad target provided
     }
 
     static public String getAction(String request){

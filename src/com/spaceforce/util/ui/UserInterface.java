@@ -11,21 +11,18 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    private UserInterface() {
-    }
-
     // consider System.console().readLine() to take user input - it doesn't echo the input which may be good for style's sake
     static Scanner userInput = new Scanner(System.in);
 
-    public boolean specialUse(Item item) {
-        switch (item.name) {
-            case "Garbage":
-        }
-        return false;
+    private UserInterface() {
     }
 
     public static void beginInput() {
         String userRequest = userInput.nextLine().toUpperCase(); // in what case can userRequest be null? what happens if it's an empty string?
+        useInput(userRequest);
+    }
+
+    private static void useInput(String userRequest) {
 
         switch (userRequest) {
             case "START":
@@ -40,8 +37,6 @@ public class UserInterface {
             case "INVENTORY":
                 View.renderText(Player.getInventory().toString());
                 break;
-            case "LOOK":
-                GameMap.currentLocation.look();
             case "EXIT": {
                 Game.exit();
                 return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
@@ -62,9 +57,12 @@ public class UserInterface {
                         Game.grabItem((Item) requestTarget);
                     } else if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
                         Player.removeItem((Item) requestTarget);
-                    } else if (requestAction.equals("GO") && GameMap.currentLocation.checkExit(((Location) requestTarget).name)) {
-                        GameMap.currentLocation = (Location) requestTarget;
+                    } else if (requestAction.equals("GO")) { //&& GameMap.currentLocation.checkExit(((Location) requestTarget).name)
+                        //boolean validLocation = false;
 
+                        View.renderText("Going to " + requestTarget.getName());
+                        GameMap.currentLocation = (Location) requestTarget;
+                        View.renderText(GameMap.currentLocation.introMsg);
 
                     } else if (requestAction.equals("USE")) {
                         for (Item item : Player.getInventory()) {
@@ -72,46 +70,28 @@ public class UserInterface {
                                 item.use();
                             }
                         }
+                    } else if (requestAction.equals("TALK")) {
+                        for (var npc : GameMap.currentLocation.npcs) {
+                            if (requestTarget.getName().equalsIgnoreCase(npc.getName())) {
+                                View.renderText(npc.talkMsg);
+                            }
+                        }
                     } else if (requestAction.equalsIgnoreCase("LOOK")) {
                         if (userRequest.split(" ").length == 1) {
                             GameMap.currentLocation.look();
-                        } else if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
-                            if (Player.checkInventory((Item) requestTarget)) {
-                                for (Item item : Player.getInventory()) {
-                                    if (requestTarget.getName().equalsIgnoreCase(item.getName())) {
-                                        item.look();
-                                    }
-                                }
-                            } else {
-                                try {
-                                    requestTarget.look();
-                                } catch (Exception e){
-
-                                }
-                            }
-                        } else if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("NPC")) {
-
                         }
-
-
-                } else if (requestAction.equals("TALK")) {
-                    for (var npc : GameMap.currentLocation.npcs) {
-                        if (requestTarget.getName().equalsIgnoreCase(npc.getName())) {
-                            View.renderText(npc.talkMsg);
-                        }
+                    } else {
+                        requestTarget.interact(requestAction);
                     }
-                } else {
-                    requestTarget.interact(requestAction);
-                }
 
-            } else{
-                System.out.println(requestAction);
-                System.out.println(requestTarget);
-                View.renderText("Action cannot be completed");
-                Game.help();
+                } else {
+                    System.out.println(requestAction);
+                    System.out.println(requestTarget);
+                    View.renderText("Action cannot be completed");
+                    Game.help();
+                }
             }
         }
-    }
 //                    ActionSubject subject;
 //
 //                    if (Player.inventory.contains(noun)){
@@ -135,5 +115,12 @@ public class UserInterface {
 //                     else {
 //                          noun.interact(verb);
 //                     }
-}
+    }
+
+    public boolean specialUse(Item item) {
+        switch (item.name) {
+            case "Garbage":
+        }
+        return false;
+    }
 }
