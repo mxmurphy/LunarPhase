@@ -6,7 +6,7 @@ public class UserInterfaceTest {
     String results;
     @Test
     public void useInputTest(){
-        
+
 
 }
 }
