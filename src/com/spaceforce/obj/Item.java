@@ -12,6 +12,7 @@ public class Item implements Interaction {
     public String goMsg = "You try to make it go, but it comes right back";
     public String dropMsg = "You have dropped ";
     public String useMsg = "You have used ";
+    public String specialMsg = "Congrats!";
     public String name = "What's my name?";
     public boolean grabbable;
 
