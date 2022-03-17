@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class Location implements Interaction {
+    public String lookMsg="look";
     public String name;
     public int[] itemIds;
     public int[] npcIds;
@@ -60,6 +61,15 @@ public class Location implements Interaction {
         for (Item item : items) {
             if (noun.equalsIgnoreCase(item.name)) {
                 return item;
+            }
+        }
+        return null;
+    }
+
+    public NPC findNpc(String noun) {
+        for (NPC npc : npcs) {
+            if (noun.equalsIgnoreCase(npc.name)) {
+                return npc;
             }
         }
         return null;
