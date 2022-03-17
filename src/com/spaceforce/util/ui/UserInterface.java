@@ -37,6 +37,11 @@ public class UserInterface {
             case "INVENTORY":
                 View.renderText(Player.getInventory().toString());
                 break;
+            case "LOOK":
+                GameMap.currentLocation.look();
+                break;
+            case "TALK":
+                GameMap.currentLocation.talk();
             case "EXIT": {
                 Game.exit();
                 return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
@@ -77,21 +82,29 @@ public class UserInterface {
                             }
                         }
                     } else if (requestAction.equalsIgnoreCase("LOOK")) {
-                        if (userRequest.split(" ").length == 1) {
-                            GameMap.currentLocation.look();
-                        }
-                    } else {
-                        requestTarget.interact(requestAction);
-                    }
+                        if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
+                            for (Item item : Player.getInventory()) {
+                                if (requestTarget.getName().equalsIgnoreCase(item.getName())) {
+                                    item.look();
+                                }
+                            }
+                            if (GameMap.currentLocation.findItem(requestTarget.getName()) != null) {
+                                GameMap.currentLocation.findItem(requestTarget.getName()).look();
 
-                } else {
-                    System.out.println(requestAction);
-                    System.out.println(requestTarget);
-                    View.renderText("Action cannot be completed");
-                    Game.help();
+                            }
+                        } else if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("NPC")) {
+                        } else {
+                            requestTarget.interact(requestAction);
+                        }
+
+                    } else {
+                        System.out.println(requestAction);
+                        System.out.println(requestTarget);
+                        View.renderText("Action cannot be completed");
+                        Game.help();
+                    }
                 }
             }
-        }
 //                    ActionSubject subject;
 //
 //                    if (Player.inventory.contains(noun)){
@@ -115,6 +128,7 @@ public class UserInterface {
 //                     else {
 //                          noun.interact(verb);
 //                     }
+        }
     }
 
     public boolean specialUse(Item item) {
