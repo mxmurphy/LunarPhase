@@ -13,6 +13,7 @@ public class Item implements Interaction {
     public String dropMsg = "You have dropped ";
     public String useMsg = "You have used ";
     public String name = "What's my name?";
+    public String specialMsg="Special";
     public boolean grabbable;
 
 
