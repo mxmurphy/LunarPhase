@@ -1,17 +1,17 @@
 [
   {
-    "name": "Garbage",
-    "pickMsg": "It smell's. It's gooey. It's garbage.",
-    "lookMsg": "It's an old food container.",
-    "useMsg": "It's garbage, what do you want it to do?",
-    "specialMsg": "It's garbage. Stop trying to use garbage. Just throw it away."
-  },
-  {
     "name": "Towel",
     "pickMsg": "Massively useful with great practical value.",
     "lookMsg": "It's a large beach towel with a picture of a Ford Prefect.",
     "useMsg": "You are now dry.",
     "specialMsg": "The shuttle driver notices your towel and offers to let you hitch a ride."
+  },
+  {
+    "name": "Garbage",
+    "pickMsg": "It smell's. It's gooey. It's garbage.",
+    "lookMsg": "It's an old food container.",
+    "useMsg": "It's garbage, what do you want it to do?",
+    "specialMsg": "It's garbage. Stop trying to use garbage. Just throw it away."
   },
   {
     "name": "Key",

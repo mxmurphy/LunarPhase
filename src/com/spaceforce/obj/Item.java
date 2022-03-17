@@ -14,7 +14,7 @@ public class Item implements Interaction {
     public String useMsg = "You have used ";
     public String specialMsg = "Congrats!";
     public String name = "What's my name?";
-    public String specialMsg="Special";
+//    public String specialMsg="Special";
     public boolean grabbable;
 
 
