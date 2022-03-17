@@ -1,12 +1,44 @@
 [
   {
-    "name": "George",
-    "talkMsg": "I'm George!",
-    "lookMsg": "You're looking at George... Or is it Fred?"
+    "name": "FRED",
+    "talkMsg": "How could you lose the spaceship? It's giant.",
+    "lookMsg": "He sort of looks like a newt.",
+    "needItem": null
   },
   {
-    "name": "Fred",
-    "talkMsg": "And I'm Fred!",
-    "lookMsg": "You're looking at Fred... Or is it George?"
+    "name": "MECHANIC",
+    "talkMsg": "If I was working on your spaceship, you would have a work order. No order, no work.",
+    "lookMsg": "A crusty mechanic organizing his garage.",
+    "needItem": null
+  },
+  {
+    "NAME": "PILOT",
+    "talkMsg": "I can't let you hitch a ride, you're clearly unprepared for the travel.",
+    "lookMsg": "A scruffy looking nerf-herder.",
+    "needItem": "TOWEL"
+  },
+  {
+    "name": "GEORGE",
+    "talkMsg": "Fred told me you were searching for a lost spaceship. We have a new access code 24601.",
+    "lookMsg": "He looks significantly less newt like than his brother. Maybe he got better.",
+    "needItem": null
+  },
+  {
+    "name": "SALESMAN",
+    "talkMsg": "Do you have a NUMBER? No number, no ticket. According to the rules I just made up.",
+    "lookMsg": "A bored employee that appears to have previously worked at the DMV.",
+    "needItem": "NUMBER",
+    "item": "TICKET"
+  },
+  {
+    "name": "EMPLOYEE",
+    "talkMsg": "You're not getting on this flight without a ticket.",
+    "looksMsg": "An eagle-eyed employee checking tickets.",
+    "needItem": "TICKET"
+  },
+  {
+    "name": "ROBOT",
+    "talkMsg": "Hello World",
+    "looksMsg": "Well, it's not R2D2."
   }
 ]
