@@ -9,80 +9,80 @@ import com.spaceforce.util.fileParsing.GameMap;
 
 import java.util.Scanner;
 
-public class UserInterface {
+import static com.spaceforce.util.fileParsing.GameMap.currentLocation;
 
-    private UserInterface() {
-    }
+public class UserInterface {
 
     // consider System.console().readLine() to take user input - it doesn't echo the input which may be good for style's sake
     static Scanner userInput = new Scanner(System.in);
 
-    public boolean specialUse(Item item) {
-        switch (item.name) {
-            case "Garbage":
-        }
-        return false;
+    private UserInterface() {
     }
 
     public static void beginInput() {
-            String userRequest = userInput.nextLine().toUpperCase(); // in what case can userRequest be null? what happens if it's an empty string?
+        String userRequest = userInput.nextLine().toUpperCase(); // in what case can userRequest be null? what happens if it's an empty string?
 
-            switch (userRequest) {
-                case "START":
-                    GameMap.init();
-                    break;
-                case "HELP":
-                    Game.help();
-                    break;
-                case "SAVE":
-                    Game.save();
-                    break;
-                case "INVENTORY":
-                    View.renderText(Player.getInventory().toString());
-                    break;
-                case "LOOK":
-                    GameMap.currentLocation.look();
-                case "EXIT": {
-                    Game.exit();
-                    return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
+        switch (userRequest) {
+            case "START":
+                GameMap.init();
+                break;
+            case "HELP":
+                Game.help();
+                break;
+            case "SAVE":
+                Game.save();
+                break;
+            case "INVENTORY":
+                View.renderText(Player.getInventory().toString());
+                break;
+            case "LOOK":
+                currentLocation.look();
+                break;
+            case "EXIT": {
+                Game.exit();
+                return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
+            }
+            default: {
+                userRequest = CommandParser.parse(userRequest);
+                Interaction requestTarget = null;
+                String requestAction = null;
+                if (CommandParser.getTarget(userRequest) != null) {
+                    requestTarget = CommandParser.getTarget(userRequest);
                 }
-                default: {
-                    userRequest = CommandParser.parse(userRequest);
-                    Interaction requestTarget = null;
-                    String requestAction = null;
-                    if (CommandParser.getTarget(userRequest) != null) {
-                        requestTarget = CommandParser.getTarget(userRequest);
-                    }
-                    if (CommandParser.getAction(userRequest) != null) {
-                        requestAction = CommandParser.getAction(userRequest);
-                    }
-                    if (requestAction != null && requestTarget != null) {
-                        if (requestAction.equals("PICKUP") && requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
+                if (CommandParser.getAction(userRequest) != null) {
+                    requestAction = CommandParser.getAction(userRequest);
+                }
+                if (requestAction != null && requestTarget != null) {
+                    if (requestAction.equals("PICKUP") && requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
 //                        GameMap.currentLocation.items
-                            Game.grabItem((Item) requestTarget);
-                        }else if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
-                            Player.removeItem((Item) requestTarget);
-                        }else if (requestAction.equals("GO") && GameMap.currentLocation.checkExit(((Location) requestTarget).name)) {
-                            GameMap.currentLocation = (Location) requestTarget;
-                        }else if (requestAction.equals("USE")) {
-
-                        } else if(requestAction.equals("TALK")) {
-                            for(var npc:GameMap.currentLocation.npcs){
-                                if(requestTarget.getName().equalsIgnoreCase(npc.getName())){
-                                    View.renderText(npc.talkMsg);
-                                }
+                        Game.grabItem((Item) requestTarget);
+                    } else if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
+                        Player.removeItem((Item) requestTarget);
+                    } else if (requestAction.equals("GO") && currentLocation.checkExit(((Location) requestTarget).name)) {
+                        currentLocation = (Location) requestTarget;
+                    } else if (requestAction.equals("USE")) {
+                        for (var item : Player.getInventory()) {
+                            if (requestTarget.getName().equalsIgnoreCase(item.getName())) {
+                                item.use();
                             }
-                        }else{
-                                requestTarget.interact(requestAction);
+                        }
+                    } else if (requestAction.equals("TALK")) {
+                        for (var npc : currentLocation.npcs) {
+                            if (requestTarget.getName().equalsIgnoreCase(npc.getName())) {
+                                View.renderText(npc.talkMsg);
                             }
-
+                        }
                     } else {
-                        System.out.println(requestAction);
-                        System.out.println(requestTarget);
-                        View.renderText("Action cannot be completed");
-                        Game.help();
+                        requestTarget.interact(requestAction);
                     }
+
+                } else {
+                    System.out.println(requestAction);
+                    System.out.println(requestTarget);
+                    View.renderText("Action cannot be completed");
+                    Game.help();
                 }
+            }
         }
 //                    ActionSubject subject;
 //
@@ -107,5 +107,12 @@ public class UserInterface {
 //                     else {
 //                          noun.interact(verb);
 //                     }
+    }
+
+    public boolean specialUse(Item item) {
+        switch (item.name) {
+            case "Garbage":
+        }
+        return false;
     }
 }

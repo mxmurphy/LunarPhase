@@ -1,6 +1,17 @@
 [
   {
     "name": "Garbage",
-    "pickMsg": "it stinky"
+    "pickMsg": "it stinky",
+    "useMsg": "It's garbage, what do you want it to do?"
+  },
+  {
+    "name": "Towel",
+    "pickMsg": "Massively useful",
+    "useMsg": "You are now dry."
+  },
+  {
+    "name": "key",
+    "pickMsg": "A key to an unknown door. Just keep trying--eventually it'll work!",
+    "useMsg": "You push the key into the lock and turn."
   }
 ]
