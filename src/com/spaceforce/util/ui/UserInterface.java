@@ -104,36 +104,38 @@ public class UserInterface {
                             requestTarget.interact(requestAction);
                         }
 
-                } else if (requestAction != null) {
-                        //This can be refactored into using a .txt file instead. hardcoding to make sure it works first
-                        String message;
-                        switch (requestAction) {
-                            case "PICKUP":
-                                message = "I can't pick that up.";
-                                break;
-                            case "DROP":
-                                message = "Can't drop something I don't have.";
-                                break;
-                            case "GO":
-                                message = "I can't go there right now.";
-                                break;
-                            case "USE":
-                                message = "Can't use something I don't have.";
-                                break;
-                            case "TALK":
-                                message = "Talk to who??";
-                                break;
-                            default:
-                                message = "Are you speaking another language? I don't understand you.";
-                        }
-                        message += "\n If you're confused, you can try typing help to see what you can do.";
-                        View.renderText(message);
+                    }
 
 //                        System.out.println(requestAction);
 //                        System.out.println(requestTarget);
 //                        View.renderText("Action cannot be completed");
 //                        Game.help();
+                    }else if (requestAction != null) {
+                    //This can be refactored into using a .txt file instead. hardcoding to make sure it works first
+                    String message;
+                    switch (requestAction) {
+                        case "PICKUP":
+                            message = "I can't pick that up.";
+                            break;
+                        case "DROP":
+                            message = "Can't drop something I don't have.";
+                            break;
+                        case "GO":
+                            message = "I can't go there right now.";
+                            break;
+                        case "USE":
+                            message = "Can't use something I don't have.";
+                            break;
+                        case "TALK":
+                            message = "Talk to who??";
+                            break;
+                        default:
+                            message = "Are you speaking another language? I don't know what that is";
                     }
+                    message += "\n If you're confused, you can try typing help to see what you can do.";
+                    View.renderText(message);
+                }else{
+                    View.renderText("I don't know how to do that.");
                 }
             }
 //                    ActionSubject subject;

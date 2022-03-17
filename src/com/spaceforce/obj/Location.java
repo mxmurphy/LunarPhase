@@ -18,7 +18,6 @@ public class Location implements Interaction {
     public String goMsg = "You're already here";
     public String useMsg = "This isn't a bathroom!";
     public String dropMsg = "Try picking this up before you drop it";
-    public String lookMsg = "";
     public Item[] items;
     public NPC[] npcs;
     Map<String, Item> exits; //name of valid locations to move to
