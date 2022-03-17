@@ -1,10 +1,12 @@
 [
   {
     "name": "George",
-    "talkMsg": "I'm George!"
+    "talkMsg": "I'm George!",
+    "lookMsg": "You're looking at George... Or is it Fred?"
   },
   {
     "name": "Fred",
-    "talkMsg": "And I'm Fred!"
+    "talkMsg": "And I'm Fred!",
+    "lookMsg": "You're looking at Fred... Or is it George?"
   }
 ]
