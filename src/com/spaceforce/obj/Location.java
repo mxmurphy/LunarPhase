@@ -129,7 +129,7 @@ public class Location implements Interaction {
             } catch (IOException e) {
             }
         }
-        View.renderText(currentLocation.introMsg+"\n"+ currentLocation.description);
+        View.renderText(currentLocation.introMsg+"\n" + currentLocation.description+"\n" + currentLocation.lookMsg);
         currentLocation.initNpcs();
         currentLocation.initItems();
 
