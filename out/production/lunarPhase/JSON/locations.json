@@ -57,7 +57,7 @@
     "introMsg": "Yet another identical office building, though this one has a slight tinge of red.",
     "itemIds": [6],
     "npcIds": [6],
-    "lookMsg": "You see the Mars version of your cubicle and inside it is a a sentient ROBOT and a REMOTE control",
+    "lookMsg": "You see the Mars version of your cubicle and inside it is a a sentient ROBOT and a REMOTE control. The MARS PARKING lot is outside.",
     "description": "MEMCorp has got to be the most uncreative, boring company in the Solar System. Just the same building on every planet.",
     "talkMsg": "Has anyone seen my stapler?"
   },
