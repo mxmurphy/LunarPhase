@@ -13,23 +13,24 @@ public class UserInterface {
 
     // consider System.console().readLine() to take user input - it doesn't echo the input which may be good for style's sake
     public static Scanner userInput = new Scanner(System.in);
-    public static Interaction requestTarget=null;
-    public static String requestAction=null;
+    public static Interaction requestTarget = null;
+    public static String requestAction = null;
+
     private UserInterface() {
     }
 
     public static void beginInput() {
         String userRequest;
-        do{
+        do {
             userRequest = userInput.nextLine().toUpperCase(); // in what case can userRequest be null? what happens if it's an empty string?
-        }while(!GameMap.isInitialized() && !userRequest.equalsIgnoreCase("start"));
-
+        } while (!GameMap.isInitialized() && !userRequest.equalsIgnoreCase("start"));
 
         //Game map will need to be initialized first, otherwise runtime exception occurs
         useInput(userRequest);
     }
 
     private static void useInput(String userRequest) {
+
 
         switch (userRequest) {
             case "START":
@@ -114,7 +115,7 @@ public class UserInterface {
 //                        System.out.println(requestTarget);
 //                        View.renderText("Action cannot be completed");
 //                        Game.help();
-                    }else if (requestAction != null) {
+                } else if (requestAction != null) {
                     //This can be refactored into using a .txt file instead. hardcoding to make sure it works first
                     String message;
                     switch (requestAction) {
@@ -138,7 +139,7 @@ public class UserInterface {
                     }
                     message += "\n If you're confused, you can try typing help to see what you can do.";
                     View.renderText(message);
-                }else{
+                } else {
                     View.renderText("I don't know how to do that.");
                 }
             }

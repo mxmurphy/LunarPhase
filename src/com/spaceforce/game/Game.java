@@ -29,11 +29,18 @@ public class Game {
         }
         View.renderText("\nPress Enter to continue.");
         userInput.nextLine();
+
+        //get player name
+        View.renderText("\nPlease enter your name.");
+        String playerName = userInput.nextLine();
+        System.out.println("Welcome, " + playerName + ", to LUNAR CYCLE!");
+
         if(splash){
             View.renderImage(new File("Resources/Images/birdLogo.txt"));
             splash=false;
             View.renderText("Type 'START' to begin.");
         }
+
     }
     public static void newGame() throws FileNotFoundException {
         br = new BufferedReader(new FileReader("Resources/story.txt"));
