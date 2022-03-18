@@ -28,7 +28,17 @@ public class UserInterface {
         useInput(userRequest);
     }
 
+
+
     private static void useInput(String userRequest) {
+
+        // get player name
+        String name;
+
+        public void playerStart(){
+
+        }
+
 
         switch (userRequest) {
             case "START":
