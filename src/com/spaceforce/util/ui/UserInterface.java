@@ -3,6 +3,7 @@ package com.spaceforce.util.ui;
 import com.spaceforce.game.Game;
 import com.spaceforce.obj.Interaction;
 import com.spaceforce.obj.Item;
+import com.spaceforce.obj.Location;
 import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.GameMap;
 
@@ -101,7 +102,11 @@ public class UserInterface {
                                 GameMap.currentLocation.findNpc(requestTarget.getName()).look();
                             }
                         } else {
-                            requestTarget.interact(requestAction);
+                            if(GameMap.currentLocation.equals(requestTarget)){
+                                requestTarget.interact(requestAction);
+                            }else{
+                                View.renderText("I can't see the " + requestTarget.getName() + " from here.");
+                            }
                         }
 
                     }

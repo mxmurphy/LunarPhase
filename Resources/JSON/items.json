@@ -31,7 +31,7 @@
     "name": "NUMBER",
     "pickMsg": "You have taken number 2001.",
     "lookMsg": "You have number 2001.",
-    "usemsg": "It's a slip of paper with a number. No one but the ticket agent cares.",
+    "useMsg": "It's a slip of paper with a number. No one but the ticket agent cares.",
     "specialMsg": "You hand the agent your number, who tells you, 'Congratulations 2001, you have won a free flight to MARS'"
   },
   {

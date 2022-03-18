@@ -27,8 +27,7 @@
     "name": "SALESMAN",
     "talkMsg": "Do you have a NUMBER? No number, no ticket. According to the rules I just made up.",
     "lookMsg": "A bored employee that appears to have previously worked at the DMV.",
-    "needItem": "NUMBER",
-    "item": "TICKET"
+    "needItem": "NUMBER"
   },
   {
     "name": "EMPLOYEE",
@@ -40,5 +39,10 @@
     "name": "ROBOT",
     "talkMsg": "Hello World",
     "lookMsg": "Well, it's not R2D2."
+  },
+  {
+    "name": "",
+    "pickMsg": "",
+    "lookMsg": ""
   }
 ]
