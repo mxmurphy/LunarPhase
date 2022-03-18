@@ -7,8 +7,10 @@ import com.spaceforce.obj.NPC;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ArrayNode;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
+import static java.lang.ClassLoader.getSystemResourceAsStream;
 
 public class JsonImporter {
     static String filePath = "Resources/JSON/";
@@ -20,9 +22,9 @@ public class JsonImporter {
     static{initArrayNodes();}
     static void initArrayNodes(){ //static game object node arrays
         try {
-            locationNodes = (ArrayNode) objectMapper.readTree(new FileInputStream(filePath+"locations.json"));
-            itemNodes = (ArrayNode) objectMapper.readTree(new FileInputStream(filePath+"items.json"));
-            npcNodes = (ArrayNode) objectMapper.readTree(new FileInputStream(filePath+"npcs.json"));
+            locationNodes = (ArrayNode) objectMapper.readTree(new InputStreamReader(getSystemResourceAsStream("JSON/locations.json")));
+            itemNodes = (ArrayNode) objectMapper.readTree(new InputStreamReader(getSystemResourceAsStream("JSON/items.json")));
+            npcNodes = (ArrayNode) objectMapper.readTree(new InputStreamReader(getSystemResourceAsStream("JSON/npcs.json")));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

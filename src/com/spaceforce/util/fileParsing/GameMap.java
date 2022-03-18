@@ -1,6 +1,7 @@
 package com.spaceforce.util.fileParsing;
 
 import com.spaceforce.obj.Location;
+import com.spaceforce.util.ui.View;
 
 import java.io.IOException;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class GameMap {
             locations = formatArray(JsonImporter.parseAllLocations());
             isInitialized = true;
         } else {
-            System.out.println("Already initialized");
+            View.renderText("Already initialized");
         }
         if(locations.containsKey("office")){
             currentLocation = locations.get("office");

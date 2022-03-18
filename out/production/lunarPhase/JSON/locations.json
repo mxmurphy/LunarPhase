@@ -4,7 +4,7 @@
     "introMsg": "My manager is in here somewhere and he is going to be livid!",
     "itemIds": [0],
     "npcIds": [0],
-    "lookMsg": "You coworker FRED is in the cubicle next to you and there is a TOWEL on your desks. From the office you can reach the GARAGE.",
+    "lookMsg": "You COWORKER is in the cubicle next to you and there is a TOWEL on your desks. From the office you can reach the GARAGE.",
     "description": "Your place of work--conspicuously missing the spaceship typically parked outside.",
     "talkMsg": "Sounds like somebody's got a case of the Mondays."
   },

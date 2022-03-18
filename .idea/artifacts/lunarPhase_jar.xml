@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="lunarPhase:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/lunarPhase_jar</output-path>
+    <root id="archive" name="lunarPhase.jar">
+      <element id="module-output" name="lunarPhase" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/jackson-datatype-json-org/1.8.0/jackson-datatype-json-org-1.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.8.6/jackson-mapper-asl-1.8.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.8.6/jackson-core-asl-1.8.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20090211/json-20090211.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/cliftonlabs/json-simple/4.0.0/json-simple-4.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.7.5/jackson-core-2.7.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
