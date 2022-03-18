@@ -15,14 +15,18 @@ import static com.spaceforce.util.ui.UserInterface.userInput;
 public class Game {
     private static BufferedReader br;
     private static String line;
-    private Game(){}
-    private static boolean splash=true;
+    private static String playerName = null;
+    private static boolean splash = true;
+
+    private Game() {
+    }
+
     public static void displayStory() throws IOException {
         View.renderText("\n\n");
         while ((line = br.readLine()) != null) {
-            if(!(line.trim().length()==0)){
+            if (!(line.trim().length() == 0)) {
                 View.renderText(line);
-            }else{
+            } else {
                 View.renderText("\n");
                 break;
             }
@@ -31,31 +35,37 @@ public class Game {
         userInput.nextLine();
 
         //get player name
-        View.renderText("\nPlease enter your name.");
-        String playerName = userInput.nextLine();
-        System.out.println("Welcome, " + playerName + ", to LUNAR CYCLE!");
 
-        if(splash){
+        if (splash) {
             View.renderImage(new File("Resources/Images/birdLogo.txt"));
-            splash=false;
+            splash = false;
             View.renderText("Type 'START' to begin.");
         }
 
     }
+
     public static void newGame() throws FileNotFoundException {
         br = new BufferedReader(new FileReader("Resources/story.txt"));
 
-        if(Save.hasSave()){
+        if (Save.hasSave()) {
             Save.loadData();
         } else {
             try {
+                if (playerName == null) {
+                    View.renderText("\nPlease enter your name.");
+                    String playerName = userInput.nextLine();
+                    Player.newPlayer(playerName);
+                    System.out.println("Welcome, " + playerName + ", to LUNAR CYCLE!");
+                    View.renderText("\nPress Enter to continue.");
+                    userInput.nextLine();
+                }
                 displayStory();
             } catch (IOException e) {
             }
             UserInterface.beginInput();
         }
         View.renderText(GameMap.currentLocation.introMsg);
-        while(true){
+        while (true) {
             UserInterface.beginInput();
 
         }
@@ -63,7 +73,8 @@ public class Game {
 //         Map.goTo(Map.area1);
 //         com.spaceforce.util.ui.UserInterface.beginInput();
     }
-    public static void help(){
+
+    public static void help() {
         // put these lines of text into a file for game messages
         View.renderText("These are your commands.");
         View.renderText("Talk, Look, Pickup, Go, Use, Drop");
@@ -73,23 +84,26 @@ public class Game {
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
 
-    public static void save(){
+    public static void save() {
         // View.renderText("Game Saved");
         // write to save file current area, all area objects alive in Map, and current inventory
         Save.saveData();
     }
-    public static boolean load(){
-        if(Save.hasSave()){
+
+    public static boolean load() {
+        if (Save.hasSave()) {
             Save.loadData();
             return true;
         } else return false;
     }
-    public static void exit(){
+
+    public static void exit() {
         System.exit(0);
     }
-    public static void grabItem(Item selectedItem){
-        for(Item item : GameMap.currentLocation.items){
-            if(item.equals(selectedItem)){
+
+    public static void grabItem(Item selectedItem) {
+        for (Item item : GameMap.currentLocation.items) {
+            if (item.equals(selectedItem)) {
                 Player.addItem(item);
                 item = null;
             }

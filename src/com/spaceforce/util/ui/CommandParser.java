@@ -88,13 +88,18 @@ public class CommandParser {
 
     static String parse(String request) {
         //        listValidItems();
+        StringBuilder nounBuilder=new StringBuilder();
+        String noun;
         try {
             request = findActionPairs(request);
             String[] requests = request.split(" ");
             String verb = requests[0];
-            String noun = requests[1];
-            verb = findSynonyms(verb.toLowerCase());
-            return (verb + " " + noun);
+            for(int i=1; i<requests.length; i++){
+                nounBuilder.append(requests[i]+" ");
+            }
+            noun= String.valueOf(nounBuilder);
+            verb = findSynonyms(verb.toUpperCase());
+            return (verb + " " + noun.trim());
 
         } catch (Exception e) {
             return request;

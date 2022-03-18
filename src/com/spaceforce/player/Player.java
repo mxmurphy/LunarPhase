@@ -13,11 +13,12 @@ final public class Player {
     private static List<Item> inventory = new ArrayList<>(10);
     private static int health = 10;
 
-    public Player() {
+    public Player(String playerName) {
+        this.name=playerName;
     }
-    public static Player newPlayer(){
+    public static Player newPlayer(String playerName){
         if(player==null){
-            player=new Player();
+            player=new Player(playerName);
         }
         return player;
     }
