@@ -1,10 +1,10 @@
 [
   {
     "name": "office",
-    "introMsg": "My manager is in here somewhere and he is going to be livid!",
+    "introMsg": "My manager is in here somewhere and he is going to be livid! \n Type HELP for game instructions.",
     "itemIds": [0],
     "npcIds": [0],
-    "lookMsg": "You COWORKER is in the cubicle next to you and there is a TOWEL on your desks. From the office you can reach the GARAGE.",
+    "lookMsg": "FRED is in the cubicle next to you and there is a TOWEL on your desks. From the office you can reach the GARAGE.",
     "description": "Your place of work--conspicuously missing the spaceship typically parked outside.",
     "talkMsg": "Sounds like somebody's got a case of the Mondays."
   },
@@ -19,10 +19,10 @@
   },
   {
     "name": "shuttle",
-    "introMsg": "A small commuter shuttle with it's engine idling.",
+    "introMsg": "The engine on the small commuter shuttle is currently idling.",
     "itemIds": [2],
     "npcIds": [2],
-    "lookMsg": "You see the pilot standing at the entrance bay and a large KEY on the floor. They key is red and has the MEMCorp logo on it. The shuttle will take you to the MEMCorp MOON BASE.",
+    "lookMsg": "You see the PILOT standing at the entrance bay and a large KEY on the floor. They key is red and has the MEMCorp logo on it. The shuttle will take you to the MEMCorp MOON BASE.",
     "description": "The commuter shuttle is a practical commuter craft--nothing compared to the opulent spaceship you lost.",
     "talkMsg": "I can't believe we don't get paid for this commute--we're going to a different planet!"
   },
@@ -34,7 +34,8 @@
     "lookMsg": "You see the moon base equivalent of your cubicle, there is a depressed looking man sitting at the desk with the nameplate GEORGE and a tipped over trash can with GARBAGE on the floor. The TICKET BOX is right outside the door.",
     "description": "The office has the exact floor plan as your office at earth",
     "talkMsg": "I'm going to need those TPS reports on my desk tomorrow."
-  },{
+  },
+  {
   "name": "ticket box",
   "introMsg": "A ticket box where you can buy tickets to the MEMCorp Mars base.",
   "itemIds": [4],
@@ -68,6 +69,6 @@
     "npcIds": [7],
     "lookMsg": "You see the luxurious lost space ship with the key still in the ignition.",
     "description": "Your lost spaceship--luckily you know how to fly it. Talk to the SHIP to activate by voice.",
-    "talkMsg": "I'm sorry name, I'm afraid I can't do that."
+    "talkMsg": "I'm sorry, I'm afraid I can't do that."
   }
 ]
