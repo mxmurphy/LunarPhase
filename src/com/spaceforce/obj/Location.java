@@ -1,5 +1,6 @@
 package com.spaceforce.obj;
 
+import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.JsonImporter;
 import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
@@ -7,7 +8,9 @@ import com.spaceforce.util.ui.View;
 import java.io.IOException;
 import java.util.Map;
 
+import static com.spaceforce.game.Game.displayStory;
 import static com.spaceforce.util.fileParsing.GameMap.currentLocation;
+import static com.spaceforce.util.ui.UserInterface.userInput;
 
 public class Location implements Interaction {
     public String lookMsg="look";
@@ -89,7 +92,20 @@ public class Location implements Interaction {
 
     @Override
     public void talk() {
-        View.renderText(talkMsg);
+
+
+        if(currentLocation.getName().equalsIgnoreCase("MARS PARKING")){
+            talkMsg=talkMsg.replace("name", Player.getName());
+            try {
+                View.renderText(talkMsg);
+                View.renderText("Press enter to continue.");
+                userInput.nextLine();
+                displayStory();
+            } catch (IOException e) {
+            }
+        }else{
+            View.renderText(talkMsg);
+        }
     }
 
 
@@ -107,6 +123,12 @@ public class Location implements Interaction {
     public void go() {
 
         currentLocation = (Location) UserInterface.requestTarget;
+        if(currentLocation.name.equalsIgnoreCase("MOON BASE")||currentLocation.name.equalsIgnoreCase("MARS BASE")){
+            try {
+                displayStory();
+            } catch (IOException e) {
+            }
+        }
         View.renderText(currentLocation.introMsg+"\n"+ currentLocation.description);
         currentLocation.initNpcs();
         currentLocation.initItems();
