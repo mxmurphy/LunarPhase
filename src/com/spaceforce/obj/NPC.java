@@ -1,6 +1,7 @@
 package com.spaceforce.obj;
 
 
+import com.spaceforce.game.Attack;
 import com.spaceforce.util.ui.View;
 
 public class NPC implements Interaction {
@@ -13,10 +14,24 @@ public class NPC implements Interaction {
     public String useMsg = "Don;t think using them would be a great idea either";
     public String name = "What's my name?";
     public String needItem;
+    public int health = 5;
 
-    public String getName(){
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health += health;
+    }
+
+    public void attack() {
+        Attack.attackEnemy(this);
+    }
+
+    public String getName() {
         return this.name;
     }
+
     public void talk() {
         View.renderText(talkMsg);
     }
