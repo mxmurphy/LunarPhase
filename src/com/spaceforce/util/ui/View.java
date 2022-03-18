@@ -1,8 +1,7 @@
 package com.spaceforce.util.ui;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.InputStreamReader;
 
 public class View {
 
@@ -13,8 +12,8 @@ public class View {
         System.out.println(text);
     }
 
-    public static void renderImage(File image) {
-        try (BufferedReader imageFeed = new BufferedReader(new FileReader(image))) {
+    public static void renderImage(InputStreamReader image) {
+        try (BufferedReader imageFeed = new BufferedReader(image)) {
             String imageLine;
 
             while ((imageLine = imageFeed.readLine()) != null) {

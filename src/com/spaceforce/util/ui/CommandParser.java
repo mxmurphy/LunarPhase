@@ -9,15 +9,18 @@ import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.fileParsing.JsonImporter;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import static com.spaceforce.util.fileParsing.JsonImporter.objectMapper;
+import static java.lang.ClassLoader.getSystemResourceAsStream;
 
 public class CommandParser {
+    private static BufferedReader garbageFeed;
+
     private CommandParser() {
     }
 
@@ -88,18 +91,18 @@ public class CommandParser {
 
     static String parse(String request) {
         //        listValidItems();
-        StringBuilder nounBuilder=new StringBuilder();
+        StringBuilder nounBuilder = new StringBuilder();
         String noun;
         try {
             request = findActionPairs(request);
             String[] requests = request.split(" ");
             String verb = requests[0];
-            for(int i=1; i<requests.length; i++){
-                nounBuilder.append(requests[i]+" ");
+            for (int i = 1; i < requests.length; i++) {
+                nounBuilder.append(requests[i] + " ");
             }
-            noun= String.valueOf(nounBuilder);
-            verb = findSynonyms(verb.toUpperCase());
-            return (verb + " " + noun.trim());
+            noun = String.valueOf(nounBuilder);
+            verb = findSynonyms(verb.toLowerCase());
+            return (verb.toUpperCase() + " " + noun.trim());
 
         } catch (Exception e) {
             return request;
@@ -114,7 +117,8 @@ public class CommandParser {
         try {
             // ObjectMapper.readValue takes File src and Class<T> valueType arguments, we want to a Map of our JSON
             // The ObjectMapper is putting the value field into an ArrayList, so we set our map to expect an ArrayList
-            Map<String, ArrayList<String>> map = objectMapper.readValue(new File("Resources/JSON/actionWords.json"), Map.class);
+            InputStreamReader input=new InputStreamReader(getSystemResourceAsStream("JSON/actionWords.json"));
+            Map<String, ArrayList<String>> map = objectMapper.readValue(input, Map.class);
             outerLoop:
             for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) { // for each key-value pair in our new map
                 for (String word : entry.getValue()) {   // for each word in the value ArrayList
@@ -137,15 +141,19 @@ public class CommandParser {
         // consider conjunctions (and, but, so)
         // consider negations (without, not)
         // if you use the word my, can we replace that with inventory?
-        File garbageWordsFile = new File("Resources/garbageWords.txt");
-        try (BufferedReader garbageFeed = new BufferedReader(new FileReader(garbageWordsFile))) {   // the BufferedReader wraps around the FileReader to make file reads more efficient
-            String garbageWord;
-            while ((garbageWord = garbageFeed.readLine()) != null) {
-                request = request.replaceAll("\\b" + garbageWord.toUpperCase() + "\\b", ""); // the regex looks for the garbageWord with word delimeters on either side of it ex: preventing toga from removing to
+        InputStreamReader input=new InputStreamReader(getSystemResourceAsStream("garbageWords.txt"));
+        garbageFeed = new BufferedReader(input);    // the BufferedReader wraps around the FileReader to make file reads more efficient
+        String garbageWord;
+        while (true) {
+            try {
+                while ((garbageWord = garbageFeed.readLine()) != null)
+                    request = request.replaceAll("\\b" + garbageWord.toUpperCase() + "\\b", ""); // the regex looks for the garbageWord with word delimeters on either side of it ex: preventing toga from removing to
+
+            } catch (IOException e) {
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+
+
+            return request;
         }
-        return request;
     }
 }

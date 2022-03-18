@@ -3,7 +3,6 @@ package com.spaceforce.util.ui;
 import com.spaceforce.game.Game;
 import com.spaceforce.obj.Interaction;
 import com.spaceforce.obj.Item;
-import com.spaceforce.obj.Location;
 import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.GameMap;
 
@@ -67,6 +66,7 @@ public class UserInterface {
                     if (requestAction.equals("PICKUP") && requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
 //                        GameMap.currentLocation.items
                         Game.grabItem((Item) requestTarget);
+                        requestTarget.pickup();
                     } else if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
                         Player.removeItem((Item) requestTarget);
                     } else if (requestAction.equals("GO")) { //&& GameMap.currentLocation.checkExit(((Location) requestTarget).name)

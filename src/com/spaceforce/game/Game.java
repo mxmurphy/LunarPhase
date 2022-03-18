@@ -10,6 +10,7 @@ import com.spaceforce.util.ui.View;
 import java.io.*;
 
 import static com.spaceforce.util.ui.UserInterface.userInput;
+import static java.lang.ClassLoader.getSystemResourceAsStream;
 
 
 public class Game {
@@ -35,9 +36,9 @@ public class Game {
         userInput.nextLine();
 
         //get player name
-
+        InputStreamReader input = new InputStreamReader(getSystemResourceAsStream("Images/birdLogo.txt"));
         if (splash) {
-            View.renderImage(new File("Resources/Images/birdLogo.txt"));
+            View.renderImage(input);
             splash = false;
             View.renderText("Type 'START' to begin.");
         }
@@ -45,7 +46,7 @@ public class Game {
     }
 
     public static void newGame() throws FileNotFoundException {
-        br = new BufferedReader(new FileReader("Resources/story.txt"));
+        br = new BufferedReader(new InputStreamReader(getSystemResourceAsStream("story.txt")));
 
         if (Save.hasSave()) {
             Save.loadData();
