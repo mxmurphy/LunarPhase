@@ -35,7 +35,6 @@ public class CommandParser {
         Item[] locationItemTargets = GameMap.currentLocation.items;
         if(locationItemTargets != null){
             for (Item target : locationItemTargets) {
-                System.out.println(target.name);
                 if (request.contains(target.name.toUpperCase())) {
                     return target;
                 }

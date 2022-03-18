@@ -102,7 +102,7 @@ public class UserInterface {
                             }
                         } else {
                             if(GameMap.currentLocation.equals(requestTarget)){
-                                requestTarget.interact(userRequest);
+                                requestTarget.interact(requestAction);
                             }else{
                                 View.renderText("I can't see the " + requestTarget.getName() + " from here.");
                             }
