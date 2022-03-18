@@ -8,7 +8,7 @@ import java.util.List;
 
 final public class Player {
     public static Player player = null;
-    private static String name;
+    private static String name="Zack";
     //private Item[] inventory = new Item[10];
     private static List<Item> inventory = new ArrayList<>(10);
     private static int health = 10;

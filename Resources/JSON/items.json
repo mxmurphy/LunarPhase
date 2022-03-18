@@ -44,8 +44,15 @@
   {
     "name": "REMOTE",
     "pickMsg": "A remote control to open a spaceship door.",
-    "looksMsg": "A remote control to the doors of a MEMCorp space shuttle.",
+    "lookMsg": "A remote control to the doors of a MEMCorp space shuttle.",
     "useMsg": "You can't use a remote if you're not by a space ship.",
     "specialMsg": "The door to your spaceship slowly opens."
+  },
+  {
+    "name": "",
+    "pickMsg": "",
+    "lookMsg": "",
+    "useMsg": "",
+    "specialMsg": ""
   }
 ]
