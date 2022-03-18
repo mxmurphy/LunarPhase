@@ -1,0 +1,30 @@
+This is a text based adventure where you lost the company spaceship. Your
+company, MEMCorp, operates on the Moon, Earth, and Mars. Even though you've
+been working there for a decade, you aren't quite sure what the company does.
+As far as you can tell, MEMCorp investigates mundane details of other corporations,
+things like whether the majority of the client's employees wear white or black socks.
+Nothing that actually requires a spaceship--but your boss will be very angry when
+she notices it is gone. In order to not lose your job you need to find it before she
+realizes it is lost! Will you take on the challenge of not getting fired?
+
+Welcome to the game.
+
+You have hitched a ride on the commuter shuttle and are en route to the moon.
+You look around at the sea of depressed faces and are immediately thankful
+that you don't need to make this daily commute. You arrive at the moon and
+immediately make your way to the MOON BASE.
+
+You look around the economy class spaceship and notice the passengers are
+far less depressed--probably due to the increased legroom. You are even happier
+because you got an exit row with even more legroom(though you do wonder why
+they still have this relic of earthbound airplanes--considering you cannot
+open the door without killing everyone inside.) Once you land on Mars, you
+quickly make your way to the MARS BASE.
+
+After you realize the spaceship AI has turned evil, you spend the next few
+hours desperately trying to convince the ship to allow you to fly it back to
+Earth. Eventually it relents after you agree to go on a date with it. Which,
+yet again, confuses you to no end. But you make the promise with absolutely
+no intention of following through--it's not immoral to ghost a computer, right?
+Once you arrive back at the MEMCorp Earth office, you park the spaceship in it's
+normal parking spot, and see your manager sternly walking towards you...

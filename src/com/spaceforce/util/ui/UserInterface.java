@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class UserInterface {
 
     // consider System.console().readLine() to take user input - it doesn't echo the input which may be good for style's sake
-    static Scanner userInput = new Scanner(System.in);
+    public static Scanner userInput = new Scanner(System.in);
     public static Interaction requestTarget=null;
     public static String requestAction=null;
     private UserInterface() {
