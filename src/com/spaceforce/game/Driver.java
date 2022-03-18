@@ -1,11 +1,14 @@
 package com.spaceforce.game;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 public class Driver {
     public static void main(String[] args) {
-    Game.newGame();
+        try {
+            Game.newGame();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
 

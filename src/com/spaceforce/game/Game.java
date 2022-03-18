@@ -7,23 +7,44 @@ import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
 
+import java.io.*;
+
+import static com.spaceforce.util.ui.UserInterface.userInput;
+
 
 public class Game {
+    private static BufferedReader br;
+    private static String line;
     private Game(){}
-
-    public static void displayIntro(){
-        View.renderText("\n\nThis is a text based adventure where you lost the company spaceship.");
-                View.renderText("In order to not lose your job you need to find it before anyone notices it gone!");
-                View.renderText("Will you take on the challenge of not getting fired!");
-                View.renderText("Welcome to the game.");
-//         View.renderImage(new File("Resources/Images/birdLogo.txt"));
-         View.renderText("\n\nEnter start to begin.");
+    private static boolean splash=true;
+    public static void displayStory() throws IOException {
+        View.renderText("\n\n");
+        while ((line = br.readLine()) != null) {
+            if(!(line.trim().length()==0)){
+                View.renderText(line);
+            }else{
+                View.renderText("\n");
+                break;
+            }
+        }
+        View.renderText("\nPress Enter to continue.");
+        userInput.nextLine();
+        if(splash){
+            View.renderImage(new File("Resources/Images/birdLogo.txt"));
+            splash=false;
+            View.renderText("Type 'START' to begin.");
+        }
     }
-    public static void newGame(){
+    public static void newGame() throws FileNotFoundException {
+        br = new BufferedReader(new FileReader("Resources/story.txt"));
+
         if(Save.hasSave()){
             Save.loadData();
         } else {
-            displayIntro();
+            try {
+                displayStory();
+            } catch (IOException e) {
+            }
             UserInterface.beginInput();
         }
         System.out.println(GameMap.currentLocation.introMsg);

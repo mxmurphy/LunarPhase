@@ -6,7 +6,7 @@
     "npcIds": [0],
     "lookMsg": "You COWORKER is in the cubicle next to you and there is a TOWEL on your desks. From the office you can reach the GARAGE.",
     "description": "Your place of work--conspicuously missing the spaceship typically parked outside.",
-    "talkMsg": "Mondays, huh?"
+    "talkMsg": "Sounds like somebody's got a case of the Mondays."
   },
   {
     "name": "garage",
