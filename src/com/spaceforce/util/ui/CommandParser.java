@@ -94,7 +94,7 @@ public class CommandParser {
         StringBuilder nounBuilder = new StringBuilder();
         String noun;
         try {
-            //request = findActionPairs(request);
+            request = findActionPairs(request);
             String[] requests = request.split(" ");
             String verb = requests[0];
             for (int i = 1; i < requests.length; i++) {
