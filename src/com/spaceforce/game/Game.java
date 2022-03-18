@@ -47,7 +47,7 @@ public class Game {
             }
             UserInterface.beginInput();
         }
-        System.out.println(GameMap.currentLocation.introMsg);
+        View.renderText(GameMap.currentLocation.introMsg);
         while(true){
             UserInterface.beginInput();
 

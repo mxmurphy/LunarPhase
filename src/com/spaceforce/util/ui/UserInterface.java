@@ -29,7 +29,8 @@ public class UserInterface {
     }
 
     private static void useInput(String userRequest) {
-
+        requestTarget=null;
+        requestAction=null;
         switch (userRequest) {
             case "START":
                 GameMap.init();
@@ -54,7 +55,7 @@ public class UserInterface {
                 return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
             }
             default: {
-                userRequest = CommandParser.parse(userRequest);
+                userRequest = CommandParser.parse(userRequest).toUpperCase();
                 if (CommandParser.getTarget(userRequest) != null) {
                     requestTarget = CommandParser.getTarget(userRequest);
                 }
@@ -62,24 +63,25 @@ public class UserInterface {
                     requestAction = CommandParser.getAction(userRequest);
                 }
                 if (requestAction != null && requestTarget != null) {
-                    if (requestAction.equals("PICKUP") && requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
+                    if (requestAction.equalsIgnoreCase("PICKUP") && requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
 //                        GameMap.currentLocation.items
                         Game.grabItem((Item) requestTarget);
-                    } else if (requestAction.equals("DROP") && Player.checkInventory((Item) requestTarget)) {
+                        requestTarget.pickup();
+                    } else if (requestAction.equalsIgnoreCase("DROP") && Player.checkInventory((Item) requestTarget)) {
                         Player.removeItem((Item) requestTarget);
-                    } else if (requestAction.equals("GO")) { //&& GameMap.currentLocation.checkExit(((Location) requestTarget).name)
+                    } else if (requestAction.equalsIgnoreCase("GO")) { //&& GameMap.currentLocation.checkExit(((Location) requestTarget).name)
                         //boolean validLocation = false;
 
                         View.renderText("Going to " + requestTarget.getName());
                         GameMap.currentLocation.go();
 
-                    } else if (requestAction.equals("USE")) {
+                    } else if (requestAction.equalsIgnoreCase("USE")) {
                         for (Item item : Player.getInventory()) {
                             if (requestTarget.getName().equalsIgnoreCase(item.getName())) {
                                 item.use();
                             }
                         }
-                    } else if (requestAction.equals("TALK")) {
+                    } else if (requestAction.equalsIgnoreCase("TALK")) {
                         for (var npc : GameMap.currentLocation.npcs) {
                             if (requestTarget.getName().equalsIgnoreCase(npc.getName())) {
                                 npc.talk();
@@ -105,14 +107,10 @@ public class UserInterface {
 
                     }
 
-//                        System.out.println(requestAction);
-//                        System.out.println(requestTarget);
-//                        View.renderText("Action cannot be completed");
-//                        Game.help();
                     }else if (requestAction != null) {
                     //This can be refactored into using a .txt file instead. hardcoding to make sure it works first
                     String message;
-                    switch (requestAction) {
+                    switch (requestAction.toUpperCase()) {
                         case "PICKUP":
                             message = "I can't pick that up.";
                             break;
