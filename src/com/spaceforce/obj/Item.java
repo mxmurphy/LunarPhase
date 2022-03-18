@@ -12,6 +12,7 @@ public class Item implements Interaction {
     public String goMsg = "You try to make it go, but it comes right back";
     public String dropMsg = "You have dropped ";
     public String useMsg = "You have used ";
+    public String specialMsg = "Congrats!";
     public String name = "What's my name?";
     public boolean grabbable;
 
@@ -25,11 +26,8 @@ public class Item implements Interaction {
     }
 
     public void pickup() {
-        if (grabbable == true) {
-            View.renderText(pickMsg + name );
-        } else {
-            View.renderText(nonpickMsg);
-        }
+        View.renderText(pickMsg);
+
     }
 
     public void go() { // IN IMPLEMENTATION COMPARE USER INPUT TO REACHABLE LOCATIONS FROM THIS LOCATION
@@ -41,7 +39,7 @@ public class Item implements Interaction {
     }
 
     public void use() {
-        View.renderText(useMsg + name);
+        View.renderText(useMsg);
     }
    @Override
    public boolean isGrabbable(){
@@ -50,7 +48,7 @@ public class Item implements Interaction {
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override

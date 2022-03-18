@@ -1,6 +1,7 @@
 package com.spaceforce.util.fileParsing;
 
 import com.spaceforce.obj.Location;
+import com.spaceforce.util.ui.View;
 
 import java.io.IOException;
 import java.util.Map;
@@ -10,17 +11,19 @@ public class GameMap {
     final static String startKey = "start";
     public static Location currentLocation;
     static Map<String, Location> locations;
+    private static boolean isInitialized = false;
 
     //fills static values
     public static void init(){
         //if locations hasn't been initialized, initialize it.
         if(locations == null){
             locations = formatArray(JsonImporter.parseAllLocations());
+            isInitialized = true;
         } else {
-            System.out.println("Already initialized");
+            View.renderText("Already initialized");
         }
-        if(locations.containsKey("start")){
-            currentLocation = locations.get("start");
+        if(locations.containsKey("office")){
+            currentLocation = locations.get("office");
         } else {
             currentLocation = (Location)locations.values().toArray()[0];
         }
@@ -44,6 +47,10 @@ public class GameMap {
         } else {
             throw new IOException(); //TODO write message
         }
+    }
+
+    public static boolean isInitialized(){
+        return isInitialized;
     }
 
     public static Map<String, Location> getWorldState(){
