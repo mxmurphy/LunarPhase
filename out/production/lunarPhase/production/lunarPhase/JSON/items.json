@@ -1,7 +1,7 @@
 [
   {
     "name": "TOWEL",
-    "pickMsg": "You pick up the towel, it is massively useful with great practical value.",
+    "pickMsg": "Massively useful with great practical value.",
     "lookMsg": "It's a large beach towel with a picture of a Ford Prefect.",
     "useMsg": "You are now dry.",
     "specialMsg": "The shuttle driver notices your towel and offers to let you hitch a ride."

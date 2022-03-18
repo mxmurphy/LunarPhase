@@ -145,6 +145,29 @@ public class Location implements Interaction {
         View.renderText(dropMsg);
     }
 
+    /**
+     * Generated equals method using name and description to compare two locations
+     * @param o the object to be compared to
+     * @return true if locations are the same, false if they are different
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Location location = (Location) o;
+
+        if (name != null ? !name.equals(location.name) : location.name != null) return false;
+        return description != null ? description.equals(location.description) : location.description == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        return result;
+    }
+
     public String getName(){
         return name;
     }
