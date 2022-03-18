@@ -1,5 +1,6 @@
 package com.spaceforce.obj;
 
+import com.spaceforce.game.Attack;
 import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.JsonImporter;
 import com.spaceforce.util.ui.UserInterface;
@@ -60,6 +61,10 @@ public class Location implements Interaction {
         } else {
             View.renderText("Already initialized.");
         }
+    }
+    public NPC getNPC(){
+        currentLocation.initNpcs();
+        return npcs[0];
     }
 
     //Search items array for matching name
@@ -129,7 +134,15 @@ public class Location implements Interaction {
             } catch (IOException e) {
             }
         }
-        View.renderText(currentLocation.introMsg+"\n" + currentLocation.description+"\n" + currentLocation.lookMsg);
+        if(currentLocation.name.equalsIgnoreCase("MARS PARKING")){
+            View.renderText(currentLocation.introMsg);
+            View.renderText("\nThe CREEPER has taken up residence in your spaceship--and he runs out and to ATTACK you.\n");
+            Attack.attackEnemy(currentLocation.getNPC());
+        }else{
+            View.renderText(currentLocation.introMsg);
+
+        }
+        View.renderText("\n" + currentLocation.description+"\n" + currentLocation.lookMsg);
         currentLocation.initNpcs();
         currentLocation.initItems();
 

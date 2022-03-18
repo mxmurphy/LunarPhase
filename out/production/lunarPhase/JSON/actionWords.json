@@ -15,5 +15,7 @@
 
  "use": ["use", "apply", "employ", "exploit", "manage", "handle", "manipulate", "operate", "utilize", "wield", "work"],
 
- "drop": ["drop", "lose", "ditch", "86", "throw away", "abandon", "dump", "release", "put down"]
+ "drop": ["drop", "lose", "ditch", "86", "throw away", "abandon", "dump", "release", "put down"],
+
+  "attack": ["attack", "fight", "charge", "pounce", "strike", "rush", "storm", "blitz"]
 }
