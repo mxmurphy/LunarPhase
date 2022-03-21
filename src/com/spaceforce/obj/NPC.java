@@ -13,8 +13,9 @@ public class NPC implements Interaction {
     public String dropMsg = "Like drop them into a black hole? I think not!";
     public String useMsg = "Don;t think using them would be a great idea either";
     public String name = "What's my name?";
+    public String attackMsg;
     public String needItem;
-    public int health = 5;
+    public int health = 10;
 
     public int getHealth() {
         return health;

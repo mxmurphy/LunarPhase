@@ -18,8 +18,8 @@ public class Attack {
             while (enemy.health > 0 && player.getHealth() > 0) {
                 View.renderText("Press enter to attack.");
                 userInput.nextLine();
-                if ((Math.random() * 10) > 4) {
-                    enemy.setHealth(-1);
+                if (Math.random() > .5) {
+                    enemy.setHealth(-2);
                     View.renderText(enemy.getName()+" has "+enemy.getHealth()+" health remaining.");
                 }else{
                     View.renderText("What are you, a stormtrooper? You missed.");
@@ -27,30 +27,31 @@ public class Attack {
                 enemyAttacks(enemy);
             }
             if(enemy.getHealth()<=0){
-
+                View.renderText("\nThe CREEPER lies motionless on the ground. People don't die in video games--they just get knocked out, right? At least that's what you'll tell yourself tomorrow.");
             }
         } else {
-            if ((Math.random() * 10) > 4) {
+            View.renderText("\n"+enemy.attackMsg+"\n");
+            if (Math.random() > .4) {
                 enemy.setHealth(-1);
             }
             enemyAttacks(enemy);
         }
         if(player.getHealth()<=0){
-            View.renderText("Never go against a Sicilian when death is on the line.");
+            View.renderText("\nNever go against a Sicilian when death is on the line.");
             System.exit(0);
         }
     }
 
     private static void enemyAttacks(NPC enemy) {
         if (enemy.name.equalsIgnoreCase("CREEPER")) {
-            if ((Math.random() * 10) > 4) {
+            if (Math.random()> .5) {
                 player.setHealth(-1);
-                View.renderText("You no have "+player.getHealth()+" health remaining.");
+                View.renderText("You now have "+player.getHealth()+" health remaining.");
 
             }
         }else{
             player.setHealth(-5);
-            View.renderText("You no have "+player.getHealth()+" health remaining.");
+            View.renderText("You now have "+player.getHealth()+" health remaining.");
         }
 
     }
