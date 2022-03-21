@@ -113,7 +113,12 @@ public class UserInterface {
                             }
                         }
 
+                    }else if(requestAction.equalsIgnoreCase("ATTACK")){
+                        if(GameMap.currentLocation.findNpc(requestTarget.getName())!=null){
+                            GameMap.currentLocation.findNpc(requestTarget.getName()).attack();
+                        }
                     }
+
 
                     }else if (requestAction != null) {
                     //This can be refactored into using a .txt file instead. hardcoding to make sure it works first
@@ -133,6 +138,9 @@ public class UserInterface {
                             break;
                         case "TALK":
                             message = "Talk to who??";
+                            break;
+                        case"ATACK":
+                            message="You swing wildly at the air. You look absolutely ridiculous.";
                             break;
                         default:
                             message = "Are you speaking another language? I don't know what that is";

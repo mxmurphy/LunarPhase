@@ -65,7 +65,11 @@ public class Game {
             }
             UserInterface.beginInput();
         }
+        View.renderText("\n");
+        help();
+        View.renderText("\n");
         View.renderText(GameMap.currentLocation.introMsg);
+        View.renderText(GameMap.currentLocation.description);
         while (true) {
             UserInterface.beginInput();
 

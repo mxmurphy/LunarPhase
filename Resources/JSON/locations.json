@@ -63,7 +63,7 @@
   },
   {
     "name": "mars parking",
-    "introMsg": "There she is. The lost spaceship",
+    "introMsg": "There she is. The lost spaceship.",
     "itemIds": [7],
     "npcIds": [7],
     "lookMsg": "You see the luxurious lost space ship with the key still in the ignition.",

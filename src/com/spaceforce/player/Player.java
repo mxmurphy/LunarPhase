@@ -43,7 +43,7 @@ final public class Player {
     }
 
     public static void setHealth(int health) {
-        Player.health = health;
+        Player.health += health;
     }
 
     public static boolean checkInventory(Item item) {
