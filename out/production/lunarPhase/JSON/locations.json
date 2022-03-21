@@ -67,7 +67,7 @@
     "itemIds": [7],
     "npcIds": [7],
     "lookMsg": "You see the luxurious lost space ship with the key still in the ignition.",
-    "description": "Your lost spaceship--luckily you know how to fly it. TALK to activate by voice.",
+    "description": "Your lost spaceship--luckily you know how to fly it. TALK to voice activate the engines.",
     "talkMsg": "I'm sorry name, I'm afraid I can't do that."
   }
 ]
