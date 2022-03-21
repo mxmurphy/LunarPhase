@@ -1,12 +1,12 @@
-package com.spaceforce.music;
+package com.spaceforce.Sound;
 
 import java.io.*;
 import java.net.URL;
 import javax.sound.sampled.*;
 
-public enum SoundFx {
-    MUSIC("src/com/totaleclipse/music/from-the-dust-cosmos.wav");
-    SFX()
+public enum Sounds {
+    MUSIC("SFX/from-the-dust-cosmos.wav");
+
 
     // Nested class for specifying volume
     public static enum Volume {
@@ -21,7 +21,7 @@ public enum SoundFx {
     public static boolean sound = true;
 
     // Constructor to construct each element of the enum with its own sound file.
-    SoundFx(String soundFileName) {
+    Sounds(String soundFileName) {
         try {
             // Use URL (instead of File) to read from disk and JAR.
             URL url = this.getClass().getClassLoader().getResource(soundFileName);
