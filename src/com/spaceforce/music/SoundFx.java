@@ -6,6 +6,7 @@ import javax.sound.sampled.*;
 
 public enum SoundFx {
     MUSIC("src/com/totaleclipse/music/from-the-dust-cosmos.wav");
+    SFX()
 
     // Nested class for specifying volume
     public static enum Volume {
@@ -40,7 +41,7 @@ public enum SoundFx {
     }
 
     // Play or Re-play the sound effect from the beginning, by rewinding.
-    public void play() {
+    public void playMusic() {
         if (volume != Volume.MUTE) {
             if (clip.isRunning())
                 clip.stop();   // Stop the player if it is still running
@@ -52,7 +53,7 @@ public enum SoundFx {
         }
     }
 
-    public void stop() {
+    public void stopMusic() {
         clip.stop();
         playing = false;
     }
@@ -62,3 +63,9 @@ public enum SoundFx {
         values(); // calls the constructor for all the elements
     }
 }
+
+//playMusic
+//stopMusic
+//playSFX
+//stopSFX
+//individual methods for each SFX
