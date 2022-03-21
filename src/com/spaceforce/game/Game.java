@@ -74,9 +74,6 @@ public class Game {
             UserInterface.beginInput();
 
         }
-//         Map.init();
-//         Map.goTo(Map.area1);
-//         com.spaceforce.util.ui.UserInterface.beginInput();
     }
 
     public static void help() {

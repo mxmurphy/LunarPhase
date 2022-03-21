@@ -67,6 +67,7 @@ public class CommandParser {
         validVerbs.add("USE");
         validVerbs.add("GO");
         validVerbs.add("DROP");
+        validVerbs.add("ATTACK");
         for (String verb : validVerbs) {
             if (request.contains(verb)) {
                 return verb;
@@ -75,19 +76,6 @@ public class CommandParser {
         return null;
     }
 
-
-    // static Map actionWords = new HashMap(JsonImporter.parseDictionary());
-
-    // private static StringBuilder listValidItems(){
-    // StringBuilder actionTargetWords = new StringBuilder();
-    // for (String item : Inventory.items){
-    //    actionTargetWords.append(item);
-    //        }
-    //        for (String item : Map.currentLocation.items){
-    //                  actionTargetWords.append(item);
-    //        }
-    //        return actionTargetWords;
-    //    }
 
     static String parse(String request) {
         //        listValidItems();
