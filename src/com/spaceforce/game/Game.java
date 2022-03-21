@@ -7,7 +7,10 @@ import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import static com.spaceforce.util.ui.UserInterface.userInput;
 import static java.lang.ClassLoader.getSystemResourceAsStream;
@@ -48,23 +51,20 @@ public class Game {
     public static void newGame() throws FileNotFoundException {
         br = new BufferedReader(new InputStreamReader(getSystemResourceAsStream("story.txt")));
 
-        if (Save.hasSave()) {
-            Save.loadData();
-        } else {
-            try {
-                if (playerName == null) {
-                    View.renderText("\nPlease enter your name.");
-                    String playerName = userInput.nextLine();
-                    Player.newPlayer(playerName);
-                    System.out.println("Welcome, " + playerName + ", to LUNAR CYCLE!");
-                    View.renderText("\nPress Enter to continue.");
-                    userInput.nextLine();
-                }
-                displayStory();
-            } catch (IOException e) {
+        try {
+            if (playerName == null) {
+                View.renderText("\nPlease enter your name.");
+                String playerName = userInput.nextLine();
+                Player.newPlayer(playerName);
+                System.out.println("Welcome, " + playerName + ", to LUNAR CYCLE!");
+                View.renderText("\nPress Enter to continue.");
+                userInput.nextLine();
             }
-            UserInterface.beginInput();
+            displayStory();
+        } catch (IOException e) {
         }
+        UserInterface.beginInput();
+
         View.renderText("\n");
         help();
         View.renderText("\n");

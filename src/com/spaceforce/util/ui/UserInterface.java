@@ -38,9 +38,6 @@ public class UserInterface {
             case "HELP":
                 Game.help();
                 break;
-            case "SAVE":
-                Game.save();
-                break;
             case "INVENTORY":
                 View.renderText(Player.getInventory().toString());
                 break;
