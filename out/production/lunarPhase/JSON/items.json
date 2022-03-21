@@ -35,7 +35,7 @@
     "specialMsg": "You hand the agent your number, who tells you, 'Congratulations 2001, you have won a free flight to MARS'"
   },
   {
-    "name": "TICKET",
+    "name": "MARS TICKET",
     "pickMsg": "Economy Class ticket from MEMCorp MOON to MEMCorp MARS.",
     "lookMsg": "You've seen a ticket before. Moon to Mars.",
     "useMsg": "Congratulations. You have a ticket to MARS. Do you want a cookie?",

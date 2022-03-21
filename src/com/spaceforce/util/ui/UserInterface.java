@@ -76,7 +76,6 @@ public class UserInterface {
                     } else if (requestAction.equals("GO")) { //&& GameMap.currentLocation.checkExit(((Location) requestTarget).name)
                         //boolean validLocation = false;
 
-                        View.renderText("Going to " + requestTarget.getName());
                         GameMap.currentLocation.go();
 
                     } else if (requestAction.equals("USE")) {
