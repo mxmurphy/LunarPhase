@@ -50,9 +50,9 @@ public class CommandParser {
                 }
             }
         }
-        for (Location location : JsonImporter.parseAllLocations()) {
-            if (request.contains(location.getName().toUpperCase())) {
-                return location;
+        for (String location : GameMap.locations.keySet()) {
+            if (request.contains(location.toUpperCase())) {
+                return GameMap.locations.get(location);
             }
         }
 
