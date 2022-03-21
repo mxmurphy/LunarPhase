@@ -1,8 +1,12 @@
 package com.spaceforce.Sound;
 
+import com.spaceforce.util.ui.View;
+
 import java.io.*;
 import java.net.URL;
 import javax.sound.sampled.*;
+
+import static java.lang.ClassLoader.getSystemResourceAsStream;
 
 public enum Sounds {
     MUSIC("SFX/from-the-dust-cosmos.wav");
@@ -26,7 +30,7 @@ public enum Sounds {
             // Use URL (instead of File) to read from disk and JAR.
             URL url = this.getClass().getClassLoader().getResource(soundFileName);
             // Set up an audio input stream piped from the sound file.
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundFileName).getAbsoluteFile());
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getSystemResourceAsStream(soundFileName));
             // Get a clip resource.
             clip = AudioSystem.getClip();
             // Open audio clip and load samples from the audio input stream.
@@ -51,11 +55,13 @@ public enum Sounds {
         if (this == MUSIC) {
             playing = true;
         }
+        View.renderText("Playing music.");
     }
 
     public void stopMusic() {
         clip.stop();
         playing = false;
+        View.renderText("Stopping music.");
     }
 
     // Optional static method to pre-load all the sound files.
