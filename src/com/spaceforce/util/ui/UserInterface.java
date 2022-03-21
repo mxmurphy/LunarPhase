@@ -38,9 +38,6 @@ public class UserInterface {
             case "HELP":
                 Game.help();
                 break;
-            case "SAVE":
-                Game.save();
-                break;
             case "INVENTORY":
                 View.renderText(Player.getInventory().toString());
                 break;
@@ -50,6 +47,10 @@ public class UserInterface {
             case "TALK":
                 GameMap.currentLocation.talk();
                 break;
+
+            case "MUSIC":
+
+
             case "EXIT": {
                 Game.exit();
                 return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
