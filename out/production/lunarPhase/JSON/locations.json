@@ -41,7 +41,7 @@
     "description": "The office has the exact floor plan as your office at earth",
     "talkMsg": "I'm going to need those TPS reports on my desk tomorrow.",
     "exits": ["shuttle", "ticket box"],
-    "isAccessible": true
+    "isAccessible": false
   },{
   "name": "ticket box",
   "introMsg": "A ticket box where you can buy tickets to the MEMCorp Mars base.",
@@ -73,7 +73,7 @@
     "description": "MEMCorp has got to be the most uncreative, boring company in the Solar System. Just the same building on every planet.",
     "talkMsg": "Has anyone seen my stapler?",
     "exits": ["launch pad", "mars parking"],
-    "isAccessible": true
+    "isAccessible": false
   },
   {
     "name": "mars parking",

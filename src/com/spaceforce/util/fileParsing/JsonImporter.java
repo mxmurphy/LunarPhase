@@ -73,6 +73,24 @@ public class JsonImporter {
         if (item == null) throw new IOException("Location of id:" + id + " does not exist in json data file");
         return item;
     }
+
+    /**
+     * Provides a list of all obtainable items. Mimics parseAllLocations, except with item objects instead
+     * @return an array of items
+     */
+    public static Item[] parseAllItems(){
+        int size = itemNodes.size();
+        Item[] items = new Item[size];
+        try {
+            for (int i = 0; i < size; i++) {
+                items[i] = objectMapper.readValue(itemNodes.get(i), Item.class);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return items;
+    }
+
     public static NPC parseNpc(int id) throws IOException {
         NPC npc = null;
         //If json file has location of that id return it. Else throw exception
