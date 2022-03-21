@@ -11,6 +11,7 @@ import java.util.Map;
 
 import static com.spaceforce.game.Game.displayStory;
 import static com.spaceforce.util.fileParsing.GameMap.currentLocation;
+import static com.spaceforce.util.ui.UserInterface.requestTarget;
 import static com.spaceforce.util.ui.UserInterface.userInput;
 
 public class Location implements Interaction {
@@ -27,7 +28,8 @@ public class Location implements Interaction {
     public String dropMsg = "Try picking this up before you drop it";
     public Item[] items;
     public NPC[] npcs;
-    Map<String, Item> exits; //name of valid locations to move to
+    public String[] exits; //name of valid locations to move to
+    public boolean isAccessible;
 
     private Location() {
     }
@@ -87,12 +89,13 @@ public class Location implements Interaction {
     }
 
     public boolean checkExit(String exit) {
-        // if the exit provided is an exit for this location && the user has the required item to go there
-        if (exits.containsKey(exit) /*&& Player.checkInventory(exits.get(exit)) */) {
-            return true;
-        } else {
-            return false;
+        // if the exit provided is an exit for this location && the user has the required item to go there (for now just that the exit is valid)
+        for(String loc : exits){
+            if(loc.equalsIgnoreCase(exit)){
+                return true;
+            }
         }
+        return false;
     }
 
     @Override
@@ -126,25 +129,33 @@ public class Location implements Interaction {
 
     @Override
     public void go() {
-
-        currentLocation = (Location) UserInterface.requestTarget;
-        if(currentLocation.name.equalsIgnoreCase("MOON BASE")||currentLocation.name.equalsIgnoreCase("MARS BASE")){
-            try {
-                displayStory();
-            } catch (IOException e) {
+        if(checkExit(requestTarget.getName())){
+            View.renderText("Going to " + requestTarget.getName());
+            currentLocation = (Location) UserInterface.requestTarget;
+            if(currentLocation.name.equalsIgnoreCase("MOON BASE")||currentLocation.name.equalsIgnoreCase("MARS BASE")){
+                try {
+                    displayStory();
+                } catch (IOException e) {
+                }
             }
-        }
-        if(currentLocation.name.equalsIgnoreCase("MARS PARKING")){
-            View.renderText(currentLocation.introMsg);
-            View.renderText("\nThe CREEPER has taken up residence in your spaceship--and he runs out and to ATTACK you.\n");
-            Attack.attackEnemy(currentLocation.getNPC());
-        }else{
-            View.renderText(currentLocation.introMsg);
+            if(currentLocation.name.equalsIgnoreCase("MARS PARKING")){
+                View.renderText(currentLocation.introMsg);
+                View.renderText("\nThe CREEPER has taken up residence in your spaceship--and he runs out and to ATTACK you.\n");
+                Attack.attackEnemy(currentLocation.getNPC());
+            }else{
+                View.renderText(currentLocation.introMsg);
 
+            }
+            View.renderText("\n" + currentLocation.description+"\n" + currentLocation.lookMsg);
+            currentLocation.initNpcs();
+            currentLocation.initItems();
+        }else if(currentLocation.equals(requestTarget)){
+            View.renderText("I'm already here.");
+        }else{
+            View.renderText("I can't go there right now.");
         }
-        View.renderText("\n" + currentLocation.description+"\n" + currentLocation.lookMsg);
-        currentLocation.initNpcs();
-        currentLocation.initItems();
+
+
 
     }
 
