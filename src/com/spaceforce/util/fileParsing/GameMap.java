@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class GameMap {
     final static String startKey = "start";
     public static Location currentLocation;
-    static Map<String, Location> locations;
+    public static Map<String, Location> locations;
     private static boolean isInitialized = false;
 
     //fills static values

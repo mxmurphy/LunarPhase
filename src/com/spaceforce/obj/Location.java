@@ -2,6 +2,7 @@ package com.spaceforce.obj;
 
 import com.spaceforce.game.Attack;
 import com.spaceforce.player.Player;
+import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.fileParsing.JsonImporter;
 import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
@@ -91,7 +92,7 @@ public class Location implements Interaction {
     public boolean checkExit(String exit) {
         // if the exit provided is an exit for this location && the user has the required item to go there (for now just that the exit is valid)
         for(String loc : exits){
-            if(loc.equalsIgnoreCase(exit)){
+            if(loc.equalsIgnoreCase(exit) && GameMap.locations.get(exit).isAccessible){
                 return true;
             }
         }
