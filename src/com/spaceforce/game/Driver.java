@@ -1,9 +1,12 @@
 package com.spaceforce.game;
 
+import com.spaceforce.Sound.Sounds;
+
 import java.io.FileNotFoundException;
 
 public class Driver {
     public static void main(String[] args) {
+        Sounds.MUSIC.playMusic();
         try {
             Game.newGame();
         } catch (FileNotFoundException e) {
