@@ -19,6 +19,9 @@ public class UserInterface {
     private UserInterface() {
     }
 
+    /**
+     * Uses scanner to take a user input
+     */
     public static void beginInput() {
         String userRequest;
         do {
@@ -29,6 +32,10 @@ public class UserInterface {
         useInput(userRequest);
     }
 
+    /**
+     * takes the user input and checks for valid commands
+     * @param userRequest User input
+     */
     private static void useInput(String userRequest) {
         requestTarget=null;
         requestAction=null;
@@ -58,8 +65,10 @@ public class UserInterface {
                 break;
             case "SOUND":
                 if(Sounds.sound){
+                    View.renderText("Turning soundFX off.\n");
                     Sounds.sound=false;
                 }else{
+                    View.renderText("Turning SoundFX on.\n");
                     Sounds.sound=true;
                 }
                 break;
@@ -158,36 +167,7 @@ public class UserInterface {
                     View.renderText("I don't know how to do that.");
                 }
             }
-//                    ActionSubject subject;
-//
-//                    if (Player.inventory.contains(noun)){
-//                            Item subject = Player.inventory.getItem()
-//
-//                    }
-//                     else if (currentLocal.items.contains(subject) || currentLocal.npcs.contains(subject)){
-//                            subject = currentLocal.getSubject()
-//                      }
-//
-//                    if (subject.equals(null)){
-//                         View.renderText("This subject is not in sight")
-//                         continue;
-//                    }
-//                    else if (verb.equals(pickup) && subject.grabbable){
-//                         subject.interact(pickup)
-//                         location.remove(subject)
-//                         Player.addInventory(subject)
-//                         continue
-//                    }
-//                     else {
-//                          noun.interact(verb);
-//                     }
         }
     }
 
-    public boolean specialUse(Item item) {
-        switch (item.name) {
-            case "Garbage":
-        }
-        return false;
-    }
 }

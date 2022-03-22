@@ -25,7 +25,7 @@
     "lookMsg": "A scruffy looking nerf-herder.",
     "needItem": "TOWEL",
     "attackMsg": "This is my BOOMSTICK!",
-    "specialMsg": "Thanks for the towel, I'd been working up a sweat. I can give you a ride as thanks.",
+    "specialMsg": "Ahh, I see you have a towel. You're clearly a person to be reckoned with. Of course you can hitch a ride.",
     "reward": null,
     "unlocks": "moon base"
   },
@@ -45,7 +45,7 @@
     "lookMsg": "A bored employee that appears to have previously worked at the DMV.",
     "needItem": "NUMBER",
     "attackMsg": "Me and ol' double barrel here will blow your butts to kingdom come!! See if we don't!",
-    "specialMsg": "Once your number was finally called, you went up to the booth and the salesman gave you your TICKET.",
+    "specialMsg": "After what seems like an eternity(in reality it was about 3 minutes, you impatient jerk), you go up to the booth and the salesman gives you your TICKET.",
     "reward": "MARS TICKET",
     "unlocks": null
   },
@@ -54,8 +54,8 @@
     "talkMsg": "You're not getting on this flight without a ticket.",
     "lookMsg": "An eagle-eyed employee checking tickets.",
     "needItem": "MARS TICKET",
-    "attackMsg": "Honey! You get real ugly!",
-    "specialMsg": "You have your ticket? About time. Welcome aboard",
+    "attackMsg": "Honey! You got REAL ugly!",
+    "specialMsg": "No sympathy for the devil; keep that in mind. Buy the ticket, take the ride. Get on the flight, we're about to take off.",
     "reward": null,
     "unlocks": "mars base"
   },

@@ -12,6 +12,10 @@ public class Attack {
     public Attack() {
     }
 
+    /**
+     * Checks to see if the enemy needs to be fought. If it does, the damage is adjusted to make the fight winnable.
+     * @param enemy an NPC object that is the target of the attack
+     */
     public static void attackEnemy(NPC enemy) {
 
         if (enemy.name.equalsIgnoreCase("CREEPER")) {
@@ -44,6 +48,10 @@ public class Attack {
         }
     }
 
+    /**
+     * If fight is needed damage is adjusted to make fight winnable.
+     * @param enemy NPC object that is the target of the attack
+     */
     private static void enemyAttacks(NPC enemy) {
         if (enemy.name.equalsIgnoreCase("CREEPER")) {
             if (Math.random() > .5) {

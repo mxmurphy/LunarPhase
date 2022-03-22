@@ -12,7 +12,7 @@
   },
   {
     "name": "garage",
-    "introMsg": "Hopefully the spaceship is being repaired in the garage, but you would have seen the work order",
+    "introMsg": "Hopefully the spaceship is being repaired in the garage, but you would have seen the work order.",
     "itemIds": [1],
     "npcIds": [1],
     "lookMsg": "There's a MECHANIC in the corner and a MUFFLER on the ground. Off in the distance you see the commuter SHUTTLE. Behind you is the OFFICE.",

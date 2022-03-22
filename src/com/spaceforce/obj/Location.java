@@ -35,7 +35,9 @@ public class Location implements Interaction {
     private Location() {
     }
 
-    //initializes items from id array
+    /**
+     *     initializes items from id array
+     */
     public void initItems() {
         if (itemIds != null) {
             items = new Item[itemIds.length];
@@ -51,6 +53,9 @@ public class Location implements Interaction {
         }
     }
 
+    /**
+     * initializes NPCS from id array
+     */
     public void initNpcs() {
         if (npcIds != null) {
             npcs = new NPC[npcIds.length];
@@ -65,12 +70,21 @@ public class Location implements Interaction {
             View.renderText("Already initialized.");
         }
     }
+
+    /**
+     * Gets and returns the NPC in the location the player is located.
+     * @return
+     */
     public NPC getNPC(){
         currentLocation.initNpcs();
         return npcs[0];
     }
 
-    //Search items array for matching name
+    /**
+     * Search items array for matching name
+     * @param noun The player target of the item
+     * @return the item from your inventory or null if it does not exist
+     */
     public Item findItem(String noun) {
         for (Item item : items) {
             if (noun.equalsIgnoreCase(item.name)) {
@@ -80,6 +94,11 @@ public class Location implements Interaction {
         return null;
     }
 
+    /**
+     * Search location for an NPC
+     * @param noun the player target of NPCs
+     * @return the NPC in the current location or null if none exist.
+     */
     public NPC findNpc(String noun) {
         for (NPC npc : npcs) {
             if (noun.equalsIgnoreCase(npc.name)) {
@@ -128,10 +147,14 @@ public class Location implements Interaction {
         View.renderText(pickupMsg);
     }
 
+    /**
+     * Player moves locations
+     * Checks to see if the location advances the story
+     */
     @Override
     public void go() {
         if(checkExit(requestTarget.getName())){
-            View.renderText("Going to " + requestTarget.getName());
+            View.renderText("Going to " + requestTarget.getName()+"\n");
             currentLocation = (Location) UserInterface.requestTarget;
             if(currentLocation.name.equalsIgnoreCase("MOON BASE")||currentLocation.name.equalsIgnoreCase("MARS BASE")){
                 try {
@@ -148,7 +171,7 @@ public class Location implements Interaction {
 
             }
             Sounds.DOOR.playSFX();
-            View.renderText("\n" + currentLocation.description+"\n" + currentLocation.lookMsg);
+            View.renderText("\n" + currentLocation.description+"\n" + currentLocation.lookMsg+"\n");
             currentLocation.initNpcs();
             currentLocation.initItems();
         }else if(currentLocation.equals(requestTarget)){
