@@ -9,7 +9,7 @@ import java.net.URL;
 import static java.lang.ClassLoader.getSystemResourceAsStream;
 
 public enum Sounds {
-    MUSIC("SFX/from-the-dust-cosmos.wav"), DOOR("SFX/DoorSFX.wav");
+    MUSIC("SFX/from-the-dust-cosmos.wav"), DOOR("SFX/DoorSFX.wav"), SCREAM("SFX/Wilhelm.wav");
 
 
     // Nested class for specifying volume
@@ -69,7 +69,7 @@ public enum Sounds {
         values(); // calls the constructor for all the elements
     }
     public void playSFX(){
-        if (volume != Volume.MUTE) {
+        if (volume != Volume.MUTE&&sound) {
             if (clip.isRunning())
                 clip.stop();   // Stop the player if it is still running
             clip.setFramePosition(0); // rewind to the beginning
