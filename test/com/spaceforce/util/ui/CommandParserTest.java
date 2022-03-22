@@ -1,7 +1,7 @@
 package com.spaceforce.util.ui;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class CommandParserTest {
     @Test
