@@ -2,14 +2,14 @@ package com.spaceforce.Sound;
 
 import com.spaceforce.util.ui.View;
 
-import java.io.*;
-import java.net.URL;
 import javax.sound.sampled.*;
+import java.io.IOException;
+import java.net.URL;
 
 import static java.lang.ClassLoader.getSystemResourceAsStream;
 
 public enum Sounds {
-    MUSIC("SFX/from-the-dust-cosmos.wav");
+    MUSIC("SFX/from-the-dust-cosmos.wav"), DOOR("SFX/DoorSFX.wav");
 
 
     // Nested class for specifying volume
@@ -67,6 +67,17 @@ public enum Sounds {
     // Optional static method to pre-load all the sound files.
     static void init() {
         values(); // calls the constructor for all the elements
+    }
+    public void playSFX(){
+        if (volume != Volume.MUTE) {
+            if (clip.isRunning())
+                clip.stop();   // Stop the player if it is still running
+            clip.setFramePosition(0); // rewind to the beginning
+            clip.start();     // Start playing
+        }
+        if(this!=MUSIC){
+            sound=true;
+        }
     }
 }
 

@@ -78,7 +78,7 @@ public class UserInterface {
                         Player.removeItem((Item) requestTarget);
                     } else if (requestAction.equals("GO")) { //&& GameMap.currentLocation.checkExit(((Location) requestTarget).name)
                         //boolean validLocation = false;
-
+                        Sounds.DOOR.playSFX();
                         GameMap.currentLocation.go();
 
                     } else if (requestAction.equals("USE")) {

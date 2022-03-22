@@ -35,6 +35,9 @@ public class Attack {
                 enemy.setHealth(-1);
             }
             enemyAttacks(enemy);
+            if(enemy.getHealth()<=0){
+                View.renderText("You have just attacked and killed an innocent civilian. Finding a lost spaceship is the least of your problems now. Better start running.");
+            }
         }
         if(player.getHealth()<=0){
             View.renderText("\nNever go against a Sicilian when death is on the line.");
