@@ -8,23 +8,36 @@ import java.net.URL;
 
 import static java.lang.ClassLoader.getSystemResourceAsStream;
 
+/**
+ * enum to store file paths to sound files for music and sfx
+ */
+
 public enum Sounds {
     MUSIC("SFX/from-the-dust-cosmos.wav"), DOOR("SFX/DoorSFX.wav"), SCREAM("SFX/Wilhelm.wav");
 
 
-    // Nested class for specifying volume
+    /**
+     * nested class for volume control
+     */
     public static enum Volume {
         MUTE, LOW, MEDIUM, HIGH
     }
 
     public static Volume volume = Volume.LOW;
 
-    // Each sound effect has its own clip, loaded with its own sound file.
+    /**
+     * each sfx has its own clip, gets loaded with individual sound file
+     */
+
     private Clip clip;
     public static boolean playing;
     public static boolean sound = true;
 
-    // Constructor to construct each element of the enum with its own sound file.
+    /**
+     * constructor to build each element of the enum with the corresponding sound file
+     * @param soundFileName
+     */
+
     Sounds(String soundFileName) {
         try {
             // Use URL (instead of File) to read from disk and JAR.
@@ -43,6 +56,10 @@ public enum Sounds {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Method for playing music, returning music status message to user, and loops the clip by rewinding it to the beginning.
+     */
 
     // Play or Re-play the sound effect from the beginning, by rewinding.
     public void playMusic() {
@@ -68,6 +85,10 @@ public enum Sounds {
     static void init() {
         values(); // calls the constructor for all the elements
     }
+
+    /**
+     * Method for playing SFX
+     */
     public void playSFX(){
         if (volume != Volume.MUTE&&sound) {
             if (clip.isRunning())
