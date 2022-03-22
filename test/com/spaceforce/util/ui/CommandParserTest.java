@@ -1,9 +1,9 @@
 package com.spaceforce.util.ui;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class CommandParserTest {
+public class CommandParserTest {
     @Test
     public void parseTest(){
         String result=CommandParser.parse("take towel");
