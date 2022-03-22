@@ -72,13 +72,13 @@ public enum Sounds {
         if (this == MUSIC) {
             playing = true;
         }
-        View.renderText("Playing music.");
+        View.renderText("Playing music.\n");
     }
 
     public void stopMusic() {
         clip.stop();
         playing = false;
-        View.renderText("Stopping music.");
+        View.renderText("Stopping music.\n");
     }
 
     // Optional static method to pre-load all the sound files.

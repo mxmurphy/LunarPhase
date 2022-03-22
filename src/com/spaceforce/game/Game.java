@@ -24,6 +24,11 @@ public class Game {
     private Game() {
     }
 
+    /**
+     * Prints the story "cutscenes" until it reaches the blank line signalling the end of the "cutscene".
+     * If the game has just been initialized it prints the splash screen.
+     * @throws IOException
+     */
     public static void displayStory() throws IOException {
         View.renderText("\n\n");
         while ((line = br.readLine()) != null) {
@@ -47,6 +52,10 @@ public class Game {
 
     }
 
+    /**
+     * initializes the game and asks for the player to input their name.
+     * @throws FileNotFoundException
+     */
     public static void newGame() throws FileNotFoundException {
         br = new BufferedReader(new InputStreamReader(getSystemResourceAsStream("story.txt")));
 
@@ -67,14 +76,17 @@ public class Game {
         View.renderText("\n");
         help();
         View.renderText("\n");
-        View.renderText(GameMap.currentLocation.introMsg);
-        View.renderText(GameMap.currentLocation.description);
+        View.renderText(GameMap.currentLocation.getIntroMsg());
+        View.renderText(GameMap.currentLocation.getDescription());
         while (true) {
             UserInterface.beginInput();
 
         }
     }
 
+    /**
+     * Gives list of commands. Method is called when player inputs "help"
+     */
     public static void help() {
         // put these lines of text into a file for game messages
         View.renderText("These are your commands.");
@@ -85,25 +97,19 @@ public class Game {
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
 
-//    public static void save() {
-//        // View.renderText("Game Saved");
-//        // write to save file current area, all area objects alive in Map, and current inventory
-//        Save.saveData();
-//    }
-//
-//    public static boolean load() {
-//        if (Save.hasSave()) {
-//            Save.loadData();
-//            return true;
-//        } else return false;
-//    }
-
+    /**
+     * exits program. Is called when player inputs "exit".
+     */
     public static void exit() {
         System.exit(0);
     }
 
+    /**
+     * takes item from location and places it in the players inventory.
+     * @param selectedItem
+     */
     public static void grabItem(Item selectedItem) {
-        for (Item item : GameMap.currentLocation.items) {
+        for (Item item : GameMap.currentLocation.getItems()) {
             if (item.equals(selectedItem)) {
                 Player.addItem(item);
                 item = null;

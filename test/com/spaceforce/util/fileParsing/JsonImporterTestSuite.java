@@ -28,8 +28,8 @@ public class JsonImporterTestSuite {
     public void createLocationFromJsonTest(){
         try {
             Location variable = JsonImporter.parseLocation(0);
-            System.out.println(variable.description);
-            assertEquals("testing123", variable.description);
+            System.out.println(variable.getDescription());
+            assertEquals("testing123", variable.getDescription());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class JsonImporterTestSuite {
     public void createItemFromJsonTest(){
         try{
             Item variable = JsonImporter.parseItem(0);
-            assertEquals(variable.lookMsg, control.get("description"));
+            assertEquals(variable.getLookMsg(), control.get("description"));
         } catch (IOException e) {
             e.printStackTrace();
         }
