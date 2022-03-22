@@ -1,6 +1,7 @@
 package com.spaceforce.player;
 
 import com.spaceforce.obj.Item;
+import com.spaceforce.util.fileParsing.JsonImporter;
 import com.spaceforce.util.ui.View;
 
 import java.util.ArrayList;
@@ -51,12 +52,25 @@ final public class Player {
         return true;
     }
 
-    public static List<Item> addItem(Item item) {
+    public static void addItem(Item item) {
         //item = null;
         // for (int i = 0; i < inventory.size(); i++){
         inventory.add(item);//check if spot is null
         //}
-        return inventory;
+
+    }
+
+    /**
+     * Add an item to the player inventory given the item name.
+     * @param itemName the name of the item.
+     */
+    public static void addItem(String itemName){
+        for(Item item : JsonImporter.parseAllItems()){
+            if(itemName.equalsIgnoreCase(item.getName())){
+                inventory.add(item);
+                break;
+            }
+        }
     }
 
     public static List<Item> removeItem(Item item) {

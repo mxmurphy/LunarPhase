@@ -2,7 +2,6 @@ package com.spaceforce.game;
 
 import com.spaceforce.obj.Item;
 import com.spaceforce.player.Player;
-import com.spaceforce.player.save.Save;
 import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
@@ -86,18 +85,18 @@ public class Game {
         View.renderText("To look at current inventory. Type in \"Inventory\"");
     }
 
-    public static void save() {
-        // View.renderText("Game Saved");
-        // write to save file current area, all area objects alive in Map, and current inventory
-        Save.saveData();
-    }
-
-    public static boolean load() {
-        if (Save.hasSave()) {
-            Save.loadData();
-            return true;
-        } else return false;
-    }
+//    public static void save() {
+//        // View.renderText("Game Saved");
+//        // write to save file current area, all area objects alive in Map, and current inventory
+//        Save.saveData();
+//    }
+//
+//    public static boolean load() {
+//        if (Save.hasSave()) {
+//            Save.loadData();
+//            return true;
+//        } else return false;
+//    }
 
     public static void exit() {
         System.exit(0);
