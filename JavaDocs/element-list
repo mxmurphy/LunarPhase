@@ -1,0 +1,7 @@
+com.spaceforce.game
+com.spaceforce.obj
+com.spaceforce.player
+com.spaceforce.player.save
+com.spaceforce.Sound
+com.spaceforce.util.fileParsing
+com.spaceforce.util.ui

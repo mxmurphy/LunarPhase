@@ -41,7 +41,17 @@ public class Item implements Interaction {
     public void use() {
         View.renderText(useMsg);
     }
-   @Override
+
+    public String getLookMsg() {
+        return lookMsg;
+    }
+
+    public String getTalkMsg() {
+        return talkMsg;
+    }
+
+
+    @Override
    public boolean isGrabbable(){
         return this.grabbable;
    }
