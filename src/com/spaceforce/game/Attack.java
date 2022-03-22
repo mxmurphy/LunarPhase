@@ -69,6 +69,11 @@ public class Attack {
         if (player.getHealth() <= 0) {
             View.renderText("\nNever go against a Sicilian when death is on the line.");
             Sounds.SCREAM.playSFX();
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.exit(0);
         }
     }
