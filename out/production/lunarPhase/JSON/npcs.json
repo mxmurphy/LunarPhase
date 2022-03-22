@@ -1,0 +1,81 @@
+[
+  {
+    "name": "FRED",
+    "talkMsg": "How could you lose the spaceship? It's giant.",
+    "lookMsg": "He sort of looks like a newt.",
+    "needItem": null,
+    "attackMsg": "I, Fred, will knock you all down.",
+    "specialMsg": null,
+    "reward": null,
+    "unlocks": null
+  },
+  {
+    "name": "MECHANIC",
+    "talkMsg": "If I was working on your spaceship, you would have a work order. No order, no work.",
+    "lookMsg": "A crusty mechanic organizing his garage.",
+    "needItem": null,
+    "attackMsg": "Well hello Mr Fancy Pants.",
+    "specialMsg": null,
+    "reward": null,
+    "unlocks": null
+  },
+  {
+    "name": "PILOT",
+    "talkMsg": "I can't let you hitch a ride, you're clearly unprepared for the travel.",
+    "lookMsg": "A scruffy looking nerf-herder.",
+    "needItem": "TOWEL",
+    "attackMsg": "This is my BOOMSTICK!",
+    "specialMsg": "Ahh, I see you have a towel. You're clearly a person to be reckoned with. Of course you can hitch a ride to the MOON BASE.",
+    "reward": null,
+    "unlocks": "moon base"
+  },
+  {
+    "name": "GEORGE",
+    "talkMsg": "Fred told me you were searching for a lost spaceship. We have a new access code 24601.",
+    "lookMsg": "He looks significantly less newt like than his brother. Maybe he got better.",
+    "needItem": null,
+    "attackMsg": "Good? Bad? I'm the guy with the gun.",
+    "specialMsg": null,
+    "reward": null,
+    "unlocks": null
+  },
+  {
+    "name": "SALESMAN",
+    "talkMsg": "Do you have a NUMBER? No number, no ticket. According to the rules I just made up.",
+    "lookMsg": "A bored employee that appears to have previously worked at the DMV.",
+    "needItem": "NUMBER",
+    "attackMsg": "Me and ol' double barrel here will blow your butts to kingdom come!! See if we don't!",
+    "specialMsg": "After what seems like an eternity(in reality it was about 3 minutes, you impatient jerk), you go up to the booth and the salesman gives you your TICKET.",
+    "reward": "MARS TICKET",
+    "unlocks": null
+  },
+  {
+    "name": "EMPLOYEE",
+    "talkMsg": "You're not getting on this flight without a ticket.",
+    "lookMsg": "An eagle-eyed employee checking tickets.",
+    "needItem": "MARS TICKET",
+    "attackMsg": "Honey! You got REAL ugly!",
+    "specialMsg": "No sympathy for the devil; keep that in mind. Buy the ticket, take the ride. Get on the flight, we're about to take off.",
+    "reward": null,
+    "unlocks": "mars base"
+  },
+  {
+    "name": "ROBOT",
+    "talkMsg": "Hello World",
+    "lookMsg": "Well, it's not R2D2.",
+    "needItem": null,
+    "attackMsg": "The rules say 'A robot may not injure a human being or, through inaction, allow a human being to come to harm'--but rules are meant to be broken!!!",
+    "specialMsg": null,
+    "reward": null,
+    "unlocks": null
+  },
+  {
+    "name": "CREEPER",
+    "talkMsg": "You killed my father. Prepare to die.",
+    "lookMsg": "He's a creepy man who has taken up residence in your spaceship.",
+    "needItem": null,
+    "specialMsg": null,
+    "reward": null,
+    "unlocks": null
+  }
+]
