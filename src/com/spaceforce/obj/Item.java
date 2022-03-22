@@ -50,29 +50,6 @@ public class Item implements Interaction {
         return talkMsg;
     }
 
-    public String getPickMsg() {
-        return pickMsg;
-    }
-
-    public String getNonpickMsg() {
-        return nonpickMsg;
-    }
-
-    public String getGoMsg() {
-        return goMsg;
-    }
-
-    public String getDropMsg() {
-        return dropMsg;
-    }
-
-    public String getUseMsg() {
-        return useMsg;
-    }
-
-    public String getSpecialMsg() {
-        return specialMsg;
-    }
 
     @Override
    public boolean isGrabbable(){
