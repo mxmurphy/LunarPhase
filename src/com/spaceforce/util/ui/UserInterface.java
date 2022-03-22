@@ -29,7 +29,7 @@ public class UserInterface {
         useInput(userRequest);
     }
 
-    private static void useInput(String userRequest) {
+    public static void useInput(String userRequest) {
         requestTarget=null;
         requestAction=null;
         switch (userRequest) {
