@@ -4,10 +4,6 @@ import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.ui.UserInterface;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.*;
