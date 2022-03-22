@@ -9,6 +9,7 @@ import com.spaceforce.util.ui.UserInterface;
 import com.spaceforce.util.ui.View;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static com.spaceforce.game.Game.displayStory;
 import static com.spaceforce.util.fileParsing.GameMap.currentLocation;
@@ -73,11 +74,35 @@ public class Location implements Interaction {
 
     /**
      * Gets and returns the NPC in the location the player is located.
-     * @return
+     * @return the NPC at a given location
      */
     public NPC getNPC(){
         currentLocation.initNpcs();
         return npcs[0];
+    }
+
+    public Item[] getItems() {
+        return items;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getIntroMsg() {
+        return introMsg;
+    }
+
+    public NPC[] getNpcs() {
+        return npcs;
+    }
+
+    public boolean isAccessible() {
+        return isAccessible;
+    }
+
+    public void setAccessible(boolean accessible) {
+        isAccessible = accessible;
     }
 
     /**
@@ -87,7 +112,7 @@ public class Location implements Interaction {
      */
     public Item findItem(String noun) {
         for (Item item : items) {
-            if (noun.equalsIgnoreCase(item.name)) {
+            if (noun.equalsIgnoreCase(item.getName())) {
                 return item;
             }
         }
@@ -101,7 +126,7 @@ public class Location implements Interaction {
      */
     public NPC findNpc(String noun) {
         for (NPC npc : npcs) {
-            if (noun.equalsIgnoreCase(npc.name)) {
+            if (noun.equalsIgnoreCase(npc.getName())) {
                 return npc;
             }
         }
@@ -206,8 +231,8 @@ public class Location implements Interaction {
 
         Location location = (Location) o;
 
-        if (name != null ? !name.equals(location.name) : location.name != null) return false;
-        return description != null ? description.equals(location.description) : location.description == null;
+        if (!Objects.equals(name, location.name)) return false;
+        return Objects.equals(description, location.description);
     }
 
     @Override

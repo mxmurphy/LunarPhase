@@ -76,8 +76,8 @@ public class Game {
         View.renderText("\n");
         help();
         View.renderText("\n");
-        View.renderText(GameMap.currentLocation.introMsg);
-        View.renderText(GameMap.currentLocation.description);
+        View.renderText(GameMap.currentLocation.getIntroMsg());
+        View.renderText(GameMap.currentLocation.getDescription());
         while (true) {
             UserInterface.beginInput();
 
@@ -109,7 +109,7 @@ public class Game {
      * @param selectedItem
      */
     public static void grabItem(Item selectedItem) {
-        for (Item item : GameMap.currentLocation.items) {
+        for (Item item : GameMap.currentLocation.getItems()) {
             if (item.equals(selectedItem)) {
                 Player.addItem(item);
                 item = null;

@@ -25,7 +25,7 @@
     "lookMsg": "A scruffy looking nerf-herder.",
     "needItem": "TOWEL",
     "attackMsg": "This is my BOOMSTICK!",
-    "specialMsg": "Ahh, I see you have a towel. You're clearly a person to be reckoned with. Of course you can hitch a ride.",
+    "specialMsg": "Ahh, I see you have a towel. You're clearly a person to be reckoned with. Of course you can hitch a ride to the MOON BASE.",
     "reward": null,
     "unlocks": "moon base"
   },
@@ -55,7 +55,7 @@
     "lookMsg": "An eagle-eyed employee checking tickets.",
     "needItem": "MARS TICKET",
     "attackMsg": "Honey! You got REAL ugly!",
-    "specialMsg": "No sympathy for the devil; keep that in mind. Buy the ticket, take the ride. Get on the flight, we're about to take off.",
+    "specialMsg": "No sympathy for the devil; keep that in mind. Buy the ticket, take the ride. Get on the flight, we're about to take off to the MARS BASE.",
     "reward": null,
     "unlocks": "mars base"
   },

@@ -28,7 +28,6 @@ public class LocationTest {
         Location garage = locations.get("garage");
         Location shuttle = locations.get("shuttle");
         Location moon = locations.get("moon base");
-
         //starting in office
         assertEquals(office, GameMap.currentLocation);
 
@@ -50,7 +49,7 @@ public class LocationTest {
         assertEquals(shuttle, GameMap.currentLocation);
 
         //should still be in shuttle, next area isn't available
-        assertFalse(moon.isAccessible);
+        assertFalse(moon.isAccessible());
         UserInterface.useInput("go moon base");
         assertEquals(shuttle, GameMap.currentLocation);
 
@@ -63,6 +62,6 @@ public class LocationTest {
         UserInterface.useInput("talk pilot");
 
         //can not move to moon base, since that will require input from user, but it should now be accessible
-        assertTrue(moon.isAccessible);
+        assertTrue(moon.isAccessible());
     }
 }

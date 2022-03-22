@@ -6,10 +6,6 @@ import com.spaceforce.player.Player;
 import com.spaceforce.util.fileParsing.GameMap;
 import com.spaceforce.util.ui.View;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
 public class NPC implements Interaction {
 
     public String talkMsg = "Go jump into a black hole!";
@@ -26,6 +22,11 @@ public class NPC implements Interaction {
     public String unlocks;
     public int health = 10;
 
+    public String getAttackMsg() {
+        return attackMsg;
+    }
+
+    
     public int getHealth() {
         return health;
     }
@@ -44,35 +45,35 @@ public class NPC implements Interaction {
 
     public void talk() {
         //if this npc needs an item, check if the player has the item
-        if(needItem != null){
+        if (needItem != null) {
             boolean hasItem = false;
-            for(Item item : Player.getInventory()){
-                if(needItem.equalsIgnoreCase(item.getName())){
+            for (Item item : Player.getInventory()) {
+                if (needItem.equalsIgnoreCase(item.getName())) {
                     hasItem = true;
                     break;
                 }
             }
 
             //if the player has the required item, they can proceed to the next location
-            if(hasItem){
+            if (hasItem) {
                 //once the correct item is obtained and the npc has been spoken to, the next location is accessible.
-                for(Location location : GameMap.locations.values()){
-                    if(unlocks != null && unlocks.equalsIgnoreCase(location.getName())){
-                        location.isAccessible = true;
+                for (Location location : GameMap.locations.values()) {
+                    if (unlocks != null && unlocks.equalsIgnoreCase(location.getName())) {
+                        location.setAccessible(true);
                     }
                 }
 
                 //if the npc gives a reward, add it to inventory
-                if(reward != null){
+                if (reward != null) {
                     Player.addItem(reward);
                 }
 
                 //finally, display their special message
                 View.renderText(specialMsg);
-            }else{
+            } else {
                 View.renderText(talkMsg);
             }
-        }else{
+        } else {
             View.renderText(talkMsg);
         }
     }

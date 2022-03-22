@@ -36,7 +36,7 @@ public class UserInterface {
      * takes the user input and checks for valid commands
      * @param userRequest User input
      */
-    protected static void useInput(String userRequest){
+    public static void useInput(String userRequest){
         requestTarget=null;
         requestAction=null;
         switch (userRequest) {
@@ -102,7 +102,7 @@ public class UserInterface {
                             }
                         }
                     } else if (requestAction.equals("TALK")) {
-                        for (var npc : GameMap.currentLocation.npcs) {
+                        for (var npc : GameMap.currentLocation.getNpcs()) {
                             if (requestTarget.getName().equalsIgnoreCase(npc.getName())) {
                                 npc.talk();
                             }

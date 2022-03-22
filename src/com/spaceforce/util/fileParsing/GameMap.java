@@ -34,7 +34,7 @@ public class GameMap {
     static Map<String, Location> formatArray(Location[] locationsArray){
         Map<String, Location> localMap = new HashMap<>();
         for(Location location: locationsArray){
-            localMap.put(location.name, location);
+            localMap.put(location.getName(), location);
         }
         return localMap;
     }

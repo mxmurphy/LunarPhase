@@ -33,23 +33,23 @@ public class CommandParser {
         request = request.toUpperCase();
         if (inventoryTargets != null) {
             for (Item target : inventoryTargets) {
-                if (request.contains(target.name.toUpperCase())) {
+                if (request.contains(target.getName().toUpperCase())) {
                     return target;
                 }
             }
         }
-        Item[] locationItemTargets = GameMap.currentLocation.items;
+        Item[] locationItemTargets = GameMap.currentLocation.getItems();
         if (locationItemTargets != null) {
             for (Item target : locationItemTargets) {
-                if (request.contains(target.name.toUpperCase())) {
+                if (request.contains(target.getName().toUpperCase())) {
                     return target;
                 }
             }
         }
-        NPC[] locationNPCTargets = GameMap.currentLocation.npcs;
+        NPC[] locationNPCTargets = GameMap.currentLocation.getNpcs();
         if (locationNPCTargets != null) {
             for (NPC target : locationNPCTargets) {
-                if (request.contains(target.name.toUpperCase())) {
+                if (request.contains(target.getName().toUpperCase())) {
                     return target;
                 }
             }

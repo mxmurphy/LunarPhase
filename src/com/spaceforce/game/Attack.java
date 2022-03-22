@@ -18,9 +18,9 @@ public class Attack {
      */
     public static void attackEnemy(NPC enemy) {
 
-        if (enemy.name.equalsIgnoreCase("CREEPER")) {
+        if (enemy.getName().equalsIgnoreCase("CREEPER")) {
             View.renderText("He screams 'YOU KILLED MY FATHER! PREPARE TO DIE! Which confuses you, due to the fact that you have never killed anyone before.");
-            while (enemy.health > 0 && player.getHealth() > 0) {
+            while (enemy.getHealth() > 0 && player.getHealth() > 0) {
                 View.renderText("Press enter to attack.");
                 userInput.nextLine();
                 if (Math.random() > .5) {
@@ -36,7 +36,7 @@ public class Attack {
                 View.renderText("\nThe CREEPER lies motionless on the ground. People don't die in video games--they just get knocked out, right? At least that's what you'll tell yourself tomorrow morning.");
             }
         } else {
-            View.renderText("\n" + enemy.attackMsg + "\n");
+            View.renderText("\n" + enemy.getAttackMsg() + "\n");
             if (Math.random() > .4) {
                 enemy.setHealth(-1);
             }
@@ -53,7 +53,7 @@ public class Attack {
      * @param enemy NPC object that is the target of the attack
      */
     private static void enemyAttacks(NPC enemy) {
-        if (enemy.name.equalsIgnoreCase("CREEPER")) {
+        if (enemy.getName().equalsIgnoreCase("CREEPER")) {
             if (Math.random() > .5) {
                 player.setHealth(-1);
                 View.renderText("You were hit!");
