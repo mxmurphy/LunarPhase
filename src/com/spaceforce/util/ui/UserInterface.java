@@ -36,7 +36,7 @@ public class UserInterface {
      * takes the user input and checks for valid commands
      * @param userRequest User input
      */
-    private static void useInput(String userRequest) {
+    protected static void useInput(String userRequest){
         requestTarget=null;
         requestAction=null;
         switch (userRequest) {
