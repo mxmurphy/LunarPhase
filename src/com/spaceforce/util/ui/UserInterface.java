@@ -56,7 +56,13 @@ public class UserInterface {
                     Sounds.MUSIC.playMusic();
                 }
                 break;
-
+            case "SOUND":
+                if(Sounds.sound){
+                    Sounds.sound=false;
+                }else{
+                    Sounds.sound=true;
+                }
+                break;
             case "EXIT": {
                 Game.exit();
                 return; // if the switch doesn't have a return somewhere the ide complains, probably because of the infinite loop.
@@ -78,7 +84,6 @@ public class UserInterface {
                         Player.removeItem((Item) requestTarget);
                     } else if (requestAction.equals("GO")) { //&& GameMap.currentLocation.checkExit(((Location) requestTarget).name)
                         //boolean validLocation = false;
-
                         GameMap.currentLocation.go();
 
                     } else if (requestAction.equals("USE")) {

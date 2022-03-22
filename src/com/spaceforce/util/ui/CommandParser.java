@@ -100,7 +100,7 @@ public class CommandParser {
 
     }
 
-    static private String findSynonyms(String request) {
+    static protected String findSynonyms(String request) {
         // "leave" was in both "drop" and "go", it's been removed from the JSON for now
         try {
             // ObjectMapper.readValue takes File src and Class<T> valueType arguments, we want to a Map of our JSON
@@ -125,7 +125,7 @@ public class CommandParser {
     // strip out unnecessary words -> articles (the, a, an), prepositions (to, at, of, between), pronouns
     // anything after an action word and before the next action word should be an actionFocus
     // returns action and actionTarget pairs
-    private static String findActionPairs(String request) {
+    protected static String findActionPairs(String request) {
         // consider conjunctions (and, but, so)
         // consider negations (without, not)
         // if you use the word my, can we replace that with inventory?
@@ -136,7 +136,7 @@ public class CommandParser {
             try {
                 while ((garbageWord = garbageFeed.readLine()) != null)
                     request = request.replaceAll("\\b" + garbageWord.toUpperCase() + "\\b", ""); // the regex looks for the garbageWord with word delimeters on either side of it ex: preventing toga from removing to
-
+                    request=request.trim().replaceAll("\\s+", " ");
             } catch (IOException e) {
             }
 
