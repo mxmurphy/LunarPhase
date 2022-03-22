@@ -1,5 +1,6 @@
 package com.spaceforce.util.ui;
 
+import com.spaceforce.Sound.Sounds;
 import com.spaceforce.game.Game;
 import com.spaceforce.obj.Interaction;
 import com.spaceforce.obj.Item;
@@ -49,7 +50,12 @@ public class UserInterface {
                 break;
 
             case "MUSIC":
-
+                if (Sounds.playing){
+                    Sounds.MUSIC.stopMusic();
+                } else {
+                    Sounds.MUSIC.playMusic();
+                }
+                break;
 
             case "EXIT": {
                 Game.exit();
