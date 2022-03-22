@@ -12,7 +12,7 @@
   {
     "name": "MECHANIC",
     "talkMsg": "If I was working on your spaceship, you would have a work order. No order, no work.",
-    "lookMsg": "A crusty mechanic organizing his garage.",
+    "lookMsg": "A crusty MECHANIC that is organizing his garage.",
     "needItem": null,
     "attackMsg": "Well hello Mr Fancy Pants.",
     "specialMsg": null,
@@ -21,18 +21,18 @@
   },
   {
     "name": "PILOT",
-    "talkMsg": "I can't let you hitch a ride, you're clearly unprepared for the travel.",
-    "lookMsg": "A scruffy looking nerf-herder.",
+    "talkMsg": "I can't let you hitch a ride. You're clearly unprepared for the travel.",
+    "lookMsg": "A scruffy-looking nerf-herder.",
     "needItem": "TOWEL",
     "attackMsg": "This is my BOOMSTICK!",
-    "specialMsg": "Ahh, I see you have a towel. You're clearly a person to be reckoned with. Of course you can hitch a ride to the MOON BASE.",
+    "specialMsg": "Ahh, I see you have a TOWEL. You're clearly a person to be reckoned with. Of course you can hitch a ride to the MOON BASE.",
     "reward": null,
     "unlocks": "moon base"
   },
   {
     "name": "GEORGE",
     "talkMsg": "Fred told me you were searching for a lost spaceship. We have a new access code 24601.",
-    "lookMsg": "He looks significantly less newt like than his brother. Maybe he got better.",
+    "lookMsg": "He looks significantly less newt-esque than his brother. Maybe he got better.",
     "needItem": null,
     "attackMsg": "Good? Bad? I'm the guy with the gun.",
     "specialMsg": null,
@@ -42,20 +42,20 @@
   {
     "name": "SALESMAN",
     "talkMsg": "Do you have a NUMBER? No number, no ticket. According to the rules I just made up.",
-    "lookMsg": "A bored employee that appears to have previously worked at the DMV.",
+    "lookMsg": "A bored SALESMAN that appears to have previously worked at the DMV.",
     "needItem": "NUMBER",
     "attackMsg": "Me and ol' double barrel here will blow your butts to kingdom come!! See if we don't!",
-    "specialMsg": "After what seems like an eternity(in reality it was about 3 minutes, you impatient jerk), you go up to the booth and the salesman gives you your TICKET.",
+    "specialMsg": "After what seems like an eternity (in reality it was about 3 minutes you impatient jerk), you go up to the booth and the SALESMAN gives you your TICKET.",
     "reward": "MARS TICKET",
     "unlocks": null
   },
   {
     "name": "EMPLOYEE",
-    "talkMsg": "You're not getting on this flight without a ticket.",
-    "lookMsg": "An eagle-eyed employee checking tickets.",
+    "talkMsg": "You're not getting on this flight without a TICKET.",
+    "lookMsg": "An eagle-eyed EMPLOYEE checking tickets.",
     "needItem": "MARS TICKET",
     "attackMsg": "Honey! You got REAL ugly!",
-    "specialMsg": "No sympathy for the devil; keep that in mind. Buy the ticket, take the ride. Get on the flight, we're about to take off to the MARS BASE.",
+    "specialMsg": "No sympathy for the devil; keep that in mind. Buy the TICKET and take the ride. Get on the flight! We're about to take off to the MARS BASE.",
     "reward": null,
     "unlocks": "mars base"
   },
@@ -72,7 +72,7 @@
   {
     "name": "CREEPER",
     "talkMsg": "You killed my father. Prepare to die.",
-    "lookMsg": "He's a creepy man who has taken up residence in your spaceship.",
+    "lookMsg": "He's a CREEPER who has taken up residence in your spaceship.",
     "needItem": null,
     "specialMsg": null,
     "reward": null,
