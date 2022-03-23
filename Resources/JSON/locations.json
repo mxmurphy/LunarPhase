@@ -37,7 +37,7 @@
     "introMsg": "An exact copy of your office on Earth. MEMCorp is obviously a very creative company.",
     "itemIds": [3],
     "npcIds": [3],
-    "lookMsg": "You see the moon base equivalent of your cubicle, and there is a depressed \nlooking man sitting at the desk with the nameplate GEORGE, plus a tipped over trash can \nwith GARBAGE on the floor. The TICKET BOX is right outside the door.",
+    "lookMsg": "You see the MOON BASE equivalent of your cubicle, and there is a depressed \nlooking man sitting at the desk with the nameplate GEORGE, plus a tipped over trash can \nwith GARBAGE on the floor. The TICKET BOX is right outside the door.",
     "description": "The office has the exact floor plan as your office at earth.",
     "talkMsg": "I'm going to need those TPS reports on my desk tomorrow.",
     "exits": ["shuttle", "ticket box"],
