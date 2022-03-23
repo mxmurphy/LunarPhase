@@ -3,10 +3,10 @@ package com.spaceforce.Sound;
 import com.spaceforce.util.ui.View;
 
 import javax.sound.sampled.*;
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
-
-import static java.lang.ClassLoader.getSystemResourceAsStream;
 
 /**
  * enum to store file paths to sound files for music and sfx
@@ -43,7 +43,9 @@ public enum Sounds {
             // Use URL (instead of File) to read from disk and JAR.
             URL url = this.getClass().getClassLoader().getResource(soundFileName);
             // Set up an audio input stream piped from the sound file.
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getSystemResourceAsStream(soundFileName));
+            ClassLoader classLoader = Sounds.class.getClassLoader();
+            InputStream inputStream = new BufferedInputStream(classLoader.getResourceAsStream(soundFileName));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(inputStream);
             // Get a clip resource.
             clip = AudioSystem.getClip();
             // Open audio clip and load samples from the audio input stream.
