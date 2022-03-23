@@ -47,7 +47,12 @@ public class UserInterface {
                 Game.help();
                 break;
             case "INVENTORY":
-                View.renderText(Player.getInventory().toString());
+                //Loops through inventory for a more readable display
+                StringBuilder inventory = new StringBuilder();
+                for(Item item : Player.getInventory()){
+                    inventory.append(item.name).append(" ");
+                }
+                View.renderText(inventory.toString());
                 break;
             case "LOOK":
                 GameMap.currentLocation.look();
@@ -108,13 +113,15 @@ public class UserInterface {
                             }
                         }
                     } else if (requestAction.equalsIgnoreCase("LOOK")) {
+                        boolean looked = false;
                         if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
                             for (Item item : Player.getInventory()) {
                                 if (requestTarget.getName().equalsIgnoreCase(item.getName())) {
                                     item.look();
+                                    looked = true;
                                 }
                             }
-                            if (GameMap.currentLocation.findItem(requestTarget.getName()) != null) {
+                            if (GameMap.currentLocation.findItem(requestTarget.getName()) != null && !looked) {
                                 GameMap.currentLocation.findItem(requestTarget.getName()).look();
                             }
                         } else if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("NPC")) {
