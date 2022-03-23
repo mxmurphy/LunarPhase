@@ -32,6 +32,9 @@ public class Game {
     public static void displayStory() throws IOException {
         View.renderText("\n\n");
         while ((line = br.readLine()) != null) {
+            if(line.equals("EXIT")){
+                System.exit(0);
+            }
             if (!(line.trim().length() == 0)) {
                 View.renderText(line);
             } else {

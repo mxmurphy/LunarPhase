@@ -108,13 +108,15 @@ public class UserInterface {
                             }
                         }
                     } else if (requestAction.equalsIgnoreCase("LOOK")) {
+                        boolean looked=false;
                         if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("Item")) {
                             for (Item item : Player.getInventory()) {
                                 if (requestTarget.getName().equalsIgnoreCase(item.getName())) {
                                     item.look();
+                                    looked=true;
                                 }
                             }
-                            if (GameMap.currentLocation.findItem(requestTarget.getName()) != null) {
+                            if (GameMap.currentLocation.findItem(requestTarget.getName()) != null&&!looked) {
                                 GameMap.currentLocation.findItem(requestTarget.getName()).look();
                             }
                         } else if (requestTarget.getClass().getSimpleName().equalsIgnoreCase("NPC")) {
