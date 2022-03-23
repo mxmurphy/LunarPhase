@@ -45,7 +45,7 @@
     "lookMsg": "A bored SALESMAN that appears to have previously worked at the DMV.",
     "needItem": "NUMBER",
     "attackMsg": "Me and ol' double barrel here will blow your butts to kingdom come!! See if we don't!",
-    "specialMsg": "After what seems like an eternity (in reality it was about 3 minutes you impatient jerk), you go up to the booth and the SALESMAN gives you your TICKET.",
+    "specialMsg": "After what seems like an eternity (in reality it was about 3 minutes you impatient jerk), you go up to the booth and the SALESMAN gives you your TICKET.\nYou can now talk to the EMPLOYEE in the next room to board the flight.",
     "reward": "MARS TICKET",
     "unlocks": null
   },
